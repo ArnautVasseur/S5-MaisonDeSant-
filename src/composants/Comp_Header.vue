@@ -7,7 +7,9 @@ import Logo from "../composants/Comp_Logo.vue";
     <Logo class="ml-10" />
     <nav>
       <ul class="flex font-quicksand gap-14 ml-80">
-        <li class="flex items-center gap-2">
+        <li
+          class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        >
           <a href=""></a>
           <img
             class="w-5"
@@ -16,7 +18,9 @@ import Logo from "../composants/Comp_Logo.vue";
           />
           Semelles orthopédiques
         </li>
-        <li class="flex items-center gap-2">
+        <li
+          class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        >
           <a href=""></a>
           <img
             class="w-5"
@@ -25,7 +29,9 @@ import Logo from "../composants/Comp_Logo.vue";
           />
           Traitements
         </li>
-        <li class="flex items-center gap-2">
+        <li
+          class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        >
           <a href=""></a>
           <img
             class="w-5"
@@ -34,7 +40,9 @@ import Logo from "../composants/Comp_Logo.vue";
           />
           Nous connaitre
         </li>
-        <li class="font-semibold flex items-center gap-2">
+        <li
+          class="font-semibold flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        >
           <a href=""></a>
           <img
             class="w-5"
