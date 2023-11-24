@@ -1,5 +1,5 @@
 <script setup>
-import ButtonIcon from "../composants/Buttons/ButtonIcon.vue";
+import ButtonIcon from "./Buttons/Comp_ButtonIcon.vue";
 
 const props = defineProps({
   imageSrc: String,

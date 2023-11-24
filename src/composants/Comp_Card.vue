@@ -1,10 +1,12 @@
 <script setup>
+
 const props = defineProps({
   imageSrc: String,
   imageAlt: String,
   name: String,
   description: String,
 });
+
 </script>
 
 <template>
