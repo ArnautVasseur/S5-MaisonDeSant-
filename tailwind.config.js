@@ -33,6 +33,9 @@ module.exports = withAnimations({
         'mobile_h2':'1.125rem',
         'mobile_h3':'0.938rem',
         'mobile':'0.875rem',
+      },
+      dropShadow:{
+        'green-shadow': '5px 5px 0px rgba(221, 244, 234, 1)'
       }
       },
     },

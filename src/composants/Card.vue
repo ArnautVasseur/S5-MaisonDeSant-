@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="p-5 bg-white drop-shadow-[5px_5px_0px_rgba(221,244,234,1)] rounded-xl overflow-hidden justify-start items-center gap-5 inline-flex"
+    class="p-5 bg-white drop-shadow-green-shadow rounded-xl overflow-hidden justify-start items-center gap-5 inline-flex"
   >
     <img :src="imageSrc" :alt="imageAlt" class="rounded-lg" />
     <div class="flex-col justify-start items-start inline-flex">
