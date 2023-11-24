@@ -4,15 +4,10 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <div :class="isDark ? 'dark' : ''" > <!--si isDark = true, Dark mode | si isDark = false, Light mode-->
-    <body class="bg-[#eee] dark:bg-[#222] duration-700"> <!-- Rajouter une transition duration pour une transition de DarkMode à LightMode + douce -->
-      <button checked @click="isDark=!isDark" class="dark:text-white">
-        click
-      </button>
-      <RouterView />
-    </body>
-    
-  </div>
+  <header></header>
+  <body>
+    <RouterView />
+  </body>
 </template>
 
 <style scoped>
@@ -23,16 +18,3 @@ import { RouterLink, RouterView } from "vue-router";
     padding: 0;
   }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      isDark: true,
-    };
-  },
-  components: {
-
-  },
-};
-</script>
