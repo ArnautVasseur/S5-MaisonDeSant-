@@ -36,6 +36,9 @@ module.exports = withAnimations({
       },
       dropShadow:{
         'green-shadow': '5px 5px 0px rgba(221, 244, 234, 1)'
+      },
+      borderRadius:{
+        '10': "10px"
       }
       },
     },
