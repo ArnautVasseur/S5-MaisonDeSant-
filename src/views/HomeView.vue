@@ -1,10 +1,10 @@
 <script setup>
-import Circle from "../composants/Comp_Circle.vue"
+import Comp_Button from '../composants/Buttons/Comp_Button.vue';
 </script>
 
 <template>
   <h1>Homeview</h1>
-  <Circle color="#53C999" size="60" class="mt-5 ml-5" />
+  <Comp_Button name="Découvrir" :show-icon="true"/>
 </template>
 
 <style scoped></style>

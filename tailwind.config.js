@@ -16,7 +16,8 @@ module.exports = withAnimations({
         'medium_primary_green' : '#BAE9D5',
         'clear-primary-green':  '#DDF4EA',
         'secondary-blue': '#3F74A5',
-        'secondary-beige': '#FBF8F7'
+        'secondary-beige': '#FBF8F7',
+        'hover-green': '#97DEC0'
         },
       fontFamily:{
         'quicksand': ['Quicksand', 'sans-serif'],
