@@ -1,6 +1,6 @@
 <script setup>
-import Button from "../composants/Buttons/Button.vue";
-import ButtonSelect from "../composants/Buttons/ButtonSelect.vue";
+import Button from "./Buttons/Comp_Button.vue";
+import ButtonSelect from "./Buttons/Comp_ButtonSelect.vue";
 </script>
 
 <template>
