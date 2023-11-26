@@ -1,13 +1,16 @@
 <script setup>
 import Logo from "../composants/Comp_Logo.vue";
+import Comp_Circle from "../composants/Comp_Circle.vue"
 </script>
 
 <template>
-  <div class="grid bg-secondary-beige h-80 items-center">
+  <div class="grid bg-secondary-beige h-80 items-center overflow-hidden">
+    <Comp_Circle class="absolute -top-[50px] -left-[50px]" size="180" color="#BAE9D5"/>
+    <Comp_Circle class="absolute -bottom-7 -right-7" size="142.73" color="#BAE9D5"/>
     <div class="flex justify-center">
       <img
         class="h-20"
-        src="/public/images/IV_logo_.JPG"
+        src="/images/IV_logo_.JPG"
         alt="Logo pédicure-podologue"
       />
       <Logo class="ml-10" />
@@ -18,7 +21,7 @@ import Logo from "../composants/Comp_Logo.vue";
           <a href=""></a>
           <img
             class="w-5"
-            src="/public/icons/map-icon.svg"
+            src="/icons/map-icon.svg"
             alt="Icone d'un pointeur"
           />
           Nous connaitre
@@ -27,7 +30,7 @@ import Logo from "../composants/Comp_Logo.vue";
           <a href=""></a>
           <img
             class="w-5"
-            src="/public/icons/icon-devis.svg"
+            src="/icons/icon-devis.svg"
             alt="Icone d'un document"
           />
           Faire mon devis
@@ -39,14 +42,14 @@ import Logo from "../composants/Comp_Logo.vue";
       <ul class="flex font-quicksand gap-14 justify-center mb-10">
         <li class="flex items-center gap-2">
           <a href=""></a>
-          <img class="w-5" src="/public/icons/info-icon.svg" alt="Icone info" />
+          <img class="w-5" src="/icons/info-icon.svg" alt="Icone info" />
           Charte de confidentialité et d'utilisation
         </li>
         <li class="flex items-center gap-2">
           <a href=""></a>
           <img
             class="w-5"
-            src="/public/icons/admin-icon.svg"
+            src="/icons/admin-icon.svg"
             alt="Icone du buste d'un bonhomme"
           />
           Gestion administrateur
@@ -55,7 +58,7 @@ import Logo from "../composants/Comp_Logo.vue";
           <a href=""></a>
           <img
             class="w-5"
-            src="/public/icons/accessibility-icon.svg"
+            src="/icons/accessibility-icon.svg"
             alt="Icone d'un bonhomme"
           />
           Accessibilité
@@ -64,7 +67,7 @@ import Logo from "../composants/Comp_Logo.vue";
           <a href=""></a>
           <img
             class="w-5"
-            src="/public/icons/translate-icon.svg"
+            src="/icons/translate-icon.svg"
             alt="Icone d'un pictogramme pour la traduction"
           />
           Langues
