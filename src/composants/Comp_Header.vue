@@ -7,28 +7,31 @@ import Logo from "../composants/Comp_Logo.vue";
     <Logo class="ml-10" />
     <nav>
       <ul class="flex font-quicksand gap-14 ml-80">
-        <li
-          class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        <Router-Link to="/semelles-orthopediques">
+          <li
+            class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+          >
+            <img
+              class="w-5"
+              src="/public/icons/footprint-icon.svg"
+              alt="Icone d'un pied"
+            />
+            Semelles orthopédiques
+          </li></Router-Link
         >
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/public/icons/footprint-icon.svg"
-            alt="Icone d'un pied"
-          />
-          Semelles orthopédiques
-        </li>
-        <li
-          class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        <Router-Link to="/traitement">
+          <li
+            class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+          >
+            <a href=""></a>
+            <img
+              class="w-5"
+              src="/public/icons/Medical-icon.svg"
+              alt="Icone d'un stéthoscope"
+            />
+            Traitements
+          </li></Router-Link
         >
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/public/icons/Medical-icon.svg"
-            alt="Icone d'un stéthoscope"
-          />
-          Traitements
-        </li>
         <li
           class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
         >
