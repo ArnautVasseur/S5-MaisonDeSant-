@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import NotFound from '../views/404View.vue'
 import SemellesOrthopediquesView from '../views/SemellesOrthopediquesView.vue'
+import TraitementView from '../views/TraitementView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,6 +24,11 @@ const router = createRouter({
       path: '/semelles-orthopediques', 
       name: 'SemellesOrthopediques', 
       component: SemellesOrthopediquesView
+    },
+    {
+      path: '/traitement', 
+      name: 'Traitement', 
+      component: TraitementView
     },
   ]
 })

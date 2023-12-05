@@ -19,17 +19,19 @@ import Logo from "../composants/Comp_Logo.vue";
             Semelles orthopédiques
           </li></Router-Link
         >
-        <li
-          class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        <Router-Link to="/traitement">
+          <li
+            class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+          >
+            <a href=""></a>
+            <img
+              class="w-5"
+              src="/public/icons/Medical-icon.svg"
+              alt="Icone d'un stéthoscope"
+            />
+            Traitements
+          </li></Router-Link
         >
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/public/icons/Medical-icon.svg"
-            alt="Icone d'un stéthoscope"
-          />
-          Traitements
-        </li>
         <li
           class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
         >
