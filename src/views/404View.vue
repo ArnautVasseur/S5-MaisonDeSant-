@@ -43,7 +43,7 @@ import Button from "../composants/Buttons/Comp_Button.vue";
     <div class="flex justify-center items-center sm:gap-32 gap-12 mt-40">
       <img
         class="sm:w-[100px] w-[50px]"
-        src="/public/icons/foot-icon.svg"
+        src="/icons/foot-icon.svg"
         alt="Icone d'un pied"
       />
       <p
@@ -53,7 +53,7 @@ import Button from "../composants/Buttons/Comp_Button.vue";
       </p>
       <img
         class="sm:w-[100px] w-[50px]"
-        src="/public/icons/foot-icon.svg"
+        src="/icons/foot-icon.svg"
         alt="Icone d'un pied"
       />
     </div>
