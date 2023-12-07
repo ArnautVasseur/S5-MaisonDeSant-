@@ -9,7 +9,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
   <Comp_Header />
 
   <h2
-    class="text-desktop_h1 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+    class="sm:text-desktop_h1 text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
   >
     <span class="text-primary_blue">Notre</span> équipe
     <span class="text-primary_blue">et son emplacement</span> géographique
@@ -18,17 +18,17 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
   <div class="grid grid-cols-2 gap-10">
     <div>
       <h3
-        class="text-desktop_h2 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+        class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
       >
         <span class="text-primary_blue">Notre</span> équipe
       </h3>
 
-      <p class="font-quicksand ml-10 mt-10">
+      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-10">
         Notre équipe est composée de professionnels à votre écoute, spécialisés
         dans le domaine de la podologie.
       </p>
 
-      <p class="font-quicksand ml-10 mt-5">
+      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-5">
         Forts de leur expertise et de leur dévouement, ils sont déterminés à
         traiter vos problèmes et améliorer votre bien-être.
         <span class="font-semibold"
@@ -38,7 +38,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
   </div>
 
-  <div class="flex gap-10 ml-10 mr-10 mt-10">
+  <div class="sm:flex grid gap-10 ml-10 mr-10 mt-10">
     <Comp_CardButton
       nom="Esther JURY VERMOT DES ROCHES"
       diplomes="- Diplôme de la FIFA en médecine du football - Diplôme d'État de pédicure-podologue - Master en biomécanique humaine"
@@ -62,16 +62,18 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     />
   </div>
 
-  <div class="grid grid-cols-2 gap-10">
+  <div class="grid sm:grid-cols-2 grid-cols-1 gap-10">
     <div>
       <h3
-        class="text-desktop_h2 font-raleway font-semibold text-dark_primary_green ml-10 mt-20"
+        class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-20"
       >
         <span class="text-primary_blue">Emplacement</span> géographique
       </h3>
 
-      <p class="font-quicksand ml-10 mt-10">Maison de Santé CitéVie</p>
-      <p class="font-quicksand ml-10">
+      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-10">
+        Maison de Santé CitéVie
+      </p>
+      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10">
         → 56 Rue Jacques Foillet, 25200 Montbéliard
       </p>
 
@@ -81,11 +83,17 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
           src="/public/icons/phone-icon.svg"
           alt="Icone d'un téléphone"
         />
-        <p class="font-quicksand ml-2">Contact : 03 81 96 26 27</p>
+        <p class="font-quicksand sm:text-desktop text-desktop_small ml-2">
+          Contact : 03 81 96 26 27
+        </p>
       </div>
 
-      <p class="font-quicksand ml-10 mt-6">Informations pratiques :</p>
-      <ul class="list-disc font-quicksand ml-16">
+      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-6">
+        Informations pratiques :
+      </p>
+      <ul
+        class="list-disc font-quicksand sm:text-desktop text-desktop_small ml-16"
+      >
         <li class="mt-1">2ème étage</li>
         <li class="mt-1">Accès hadicapé</li>
         <li class="mt-1">Parking gratuit</li>
@@ -93,10 +101,10 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
       </ul>
     </div>
 
-    <div class="mt-36 -ml-52"><Comp_Map /></div>
+    <div class="sm:mt-36 sm:-ml-52 mt-10"><Comp_Map /></div>
   </div>
 
-  <Comp_Footer class="bottom-0 top-[1160px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[1160px] top-[2060px] absolute w-full" />
 </template>
 
 <style></style>

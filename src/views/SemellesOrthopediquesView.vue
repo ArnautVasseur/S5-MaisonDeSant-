@@ -8,26 +8,28 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
 <template>
   <Comp_Header />
 
-  <p
-    class="text-desktop_h1 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+  <h2
+    class="sm:text-desktop_h1 text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
   >
     <span class="text-primary_blue">Vos</span> semelles orthopédiques
-  </p>
+  </h2>
 
-  <div class="grid grid-cols-2 gap-10">
+  <div class="grid sm:grid-cols-2 grid-cols-1 gap-10">
     <div>
-      <p
-        class="text-desktop_h2 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+      <h3
+        class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
       >
         <span class="text-primary_blue">Leur</span> conception
-      </p>
+      </h3>
 
-      <p class="font-quicksand ml-10 mt-10">
+      <p class="font-quicksand ml-10 mt-10 sm:text-desktop text-desktop_small">
         La création des semelles orthopédiques dure en moyenne une heure,
         découpé en plusieurs étapes :
       </p>
 
-      <ul class="list-disc font-quicksand ml-14 mt-5">
+      <ul
+        class="list-disc font-quicksand ml-14 mt-5 sm:text-desktop text-desktop_small"
+      >
         <li>
           30 minutes de discussion du problème, examen physique et à la prise
           d'empreintes,
@@ -41,13 +43,15 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
 
     <div>
-      <p
-        class="text-desktop_h2 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+      <h3
+        class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
       >
         <span class="text-primary_blue">Tarifs et</span> devis
-      </p>
+      </h3>
 
-      <ul class="list-disc font-quicksand ml-14 mt-5">
+      <ul
+        class="list-disc font-quicksand ml-14 mt-5 sm:text-desktop text-desktop_small"
+      >
         <li class="mt-10">
           La consultation de podologie (bilan pour semelles orthopédiques) → 40€
         </li>
@@ -63,7 +67,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
   </div>
 
-  <div class="flex ml-10 mt-10 gap-10">
+  <div class="sm:flex grid ml-10 mt-10 gap-10">
     <img
       class="h-[302px]"
       src="/public/images/entretien-semelle-orthopedique.png"
@@ -81,34 +85,36 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     />
   </div>
 
-  <div class="grid grid-cols-2 gap-10">
+  <div class="grid sm:grid-cols-2 grid-cols-1 gap-10">
     <div>
-      <p
-        class="text-desktop_h2 font-raleway font-semibold text-primary_blue ml-10 mt-10"
+      <h3
+        class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-primary_blue ml-10 mt-10"
       >
         <span class="text-dark_primary_green">Recouvrements</span> personalisés
         des semelles
-      </p>
+      </h3>
 
-      <p class="font-quicksand ml-10 mt-10">
+      <p class="font-quicksand ml-10 mt-10 sm:text-desktop text-desktop_small">
         Nous vous inviterons à choisir le revêtement qui correspond à votre
         style et à vos préférences parmi nos quatre options de matières :
       </p>
 
-      <ul class="list-disc font-quicksand ml-14 mt-5">
+      <ul
+        class="list-disc font-quicksand ml-14 mt-5 sm:text-desktop text-desktop_small"
+      >
         <li>cuir lisse</li>
         <li>cuir micro-perforé</li>
         <li>mousse lisse</li>
         <li>mousse micro-perforée.</li>
       </ul>
 
-      <p class="font-quicksand ml-10 mt-5">
+      <p class="font-quicksand ml-10 mt-5 sm:text-desktop text-desktop_small">
         Sur place, optez alors pour celui qui complétera parfaitement votre
         confort et votre esthétique.
       </p>
     </div>
 
-    <div class="flex mt-20 items-center m-auto">
+    <div class="sm:flex grid mt-20 items-center m-auto">
       <img
         class="h-[172px]"
         src="/public/images/semelles-orthopediques.png"
@@ -122,11 +128,11 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
   </div>
 
-  <p
-    class="text-desktop_h2 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+  <h3
+    class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
   >
     <span class="text-primary_blue">Les différentes</span> pathologies
-  </p>
+  </h3>
 
   <select
     name="pathologies"
@@ -136,12 +142,12 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     <option value="" class="text-center">
       Sélectionner la provenance de la pathologie
     </option>
-    <option value="pied">pathologies du pied</option>
-    <option value="genoux">pathologies du genoux</option>
-    <option value="hanche">pathologies de la hanche</option>
+    <option value="pied" class="text-center">pathologies du pied</option>
+    <option value="genoux" class="text-center">pathologies du genoux</option>
+    <option value="hanche" class="text-center">pathologies de la hanche</option>
   </select>
 
-  <div class="grid grid-cols-5 gap-10 mt-11 ml-10 mr-10">
+  <div class="grid sm:grid-cols-5 grid-cols-1 gap-10 mt-11 ml-10 mr-10">
     <Comp_CardPathologies
       title="GENU VALGUM"
       text="Le genu valgum se manifeste par une déformation des jambes, créant une courbure vers l'intérieur et formant un X, avec les genoux qui se touchent tandis que les chevilles restent écartées."
@@ -180,7 +186,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     />
   </div>
 
-  <Comp_Footer class="bottom-0 top-[1660px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[1660px] top-[4200px] absolute w-full" />
 </template>
 
 <style></style>
