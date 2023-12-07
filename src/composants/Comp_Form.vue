@@ -9,7 +9,7 @@ import ButtonSelect from "./Buttons/Comp_ButtonSelect.vue";
       <input
         type="text"
         id="name"
-        class="w-full px-3 py-2 rounded-lg placeholder-black bg-clear-primary-green"
+        class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green"
         placeholder="Nom de famille *"
       />
     </div>
@@ -17,7 +17,7 @@ import ButtonSelect from "./Buttons/Comp_ButtonSelect.vue";
       <input
         type="text"
         id="name"
-        class="w-full px-3 py-2 rounded-lg placeholder-black bg-clear-primary-green"
+        class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green"
         placeholder="Prénom *"
       />
     </div>
@@ -25,7 +25,7 @@ import ButtonSelect from "./Buttons/Comp_ButtonSelect.vue";
       <input
         type="email"
         id="email"
-        class="w-full px-3 py-2 rounded-lg placeholder-black bg-clear-primary-green"
+        class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green"
         placeholder="E-mail *"
       />
     </div>
@@ -33,7 +33,7 @@ import ButtonSelect from "./Buttons/Comp_ButtonSelect.vue";
       <input
         type="text"
         id="ssn"
-        class="w-full px-3 py-2 rounded-lg placeholder-black bg-clear-primary-green"
+        class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green"
         placeholder="N° de sécurité sociale *"
       />
     </div>

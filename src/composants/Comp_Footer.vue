@@ -18,7 +18,7 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
     <div class="flex justify-center">
       <img
         class="h-20"
-        src="/images/IV_logo_.JPG"
+        src="/images/IV_logo.png"
         alt="Logo pédicure-podologue"
       />
       <Logo class="ml-10" />

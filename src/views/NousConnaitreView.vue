@@ -32,7 +32,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
         Forts de leur expertise et de leur dévouement, ils sont déterminés à
         traiter vos problèmes et améliorer votre bien-être.
         <span class="font-semibold"
-          >→ Rendez-vous réalisez sur Doctolib. ←</span
+          >→ Rendez-vous réalisés sur Doctolib. ←</span
         >
       </p>
     </div>

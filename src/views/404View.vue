@@ -8,7 +8,7 @@ import Button from "../composants/Buttons/Comp_Button.vue";
   <div ref="scrollContainer" class="scroll-container">
     <header class="flex items-center gap-10">
       <img
-        src="images/IV_logo_.JPG"
+        src="images/IV_logo.png"
         alt="logo_pedicure_podologue"
         class="w-[71.97px] h-[75px] top-5 left-5 ml-5"
       />
