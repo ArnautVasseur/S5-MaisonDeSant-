@@ -39,6 +39,6 @@ import ButtonSelect from "./Buttons/Comp_ButtonSelect.vue";
     </div>
   </form>
 
-  <ButtonSelect />
-  <Button name="Demander un devis" />
+  <ButtonSelect class="ml-24" />
+  <Button name="Demander un devis" class="ml-36 mt-5" />
 </template>

@@ -45,17 +45,19 @@ import Logo from "../composants/Comp_Logo.vue";
             Nous connaitre
           </li></Router-Link
         >
-        <li
-          class="font-semibold flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        <Router-Link to="/faire-devis">
+          <li
+            class="font-semibold flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+          >
+            <a href=""></a>
+            <img
+              class="w-5"
+              src="/public/icons/icon-devis.svg"
+              alt="Icone d'un document"
+            />
+            Faire mon devis
+          </li></Router-Link
         >
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/public/icons/icon-devis.svg"
-            alt="Icone d'un document"
-          />
-          Faire mon devis
-        </li>
       </ul>
     </nav>
   </div>

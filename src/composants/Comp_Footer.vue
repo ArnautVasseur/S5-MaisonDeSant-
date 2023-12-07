@@ -36,15 +36,17 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
             Nous connaitre
           </li></Router-Link
         >
-        <li class="font-semibold flex items-center gap-2">
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/icons/icon-devis.svg"
-            alt="Icone d'un document"
-          />
-          Faire mon devis
-        </li>
+        <Router-Link to="/faire-devis">
+          <li class="font-semibold flex items-center gap-2">
+            <a href=""></a>
+            <img
+              class="w-5"
+              src="/icons/icon-devis.svg"
+              alt="Icone d'un document"
+            />
+            Faire mon devis
+          </li></Router-Link
+        >
       </ul>
     </nav>
     <div class="m-auto w-4/5 h-0.5 bg-medium_primary_green"></div>
