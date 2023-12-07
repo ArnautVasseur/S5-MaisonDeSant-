@@ -32,17 +32,19 @@ import Logo from "../composants/Comp_Logo.vue";
             Traitements
           </li></Router-Link
         >
-        <li
-          class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+        <Router-Link to="/nous-connaitre">
+          <li
+            class="flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
+          >
+            <a href=""></a>
+            <img
+              class="w-5"
+              src="/public/icons/map-icon.svg"
+              alt="Icone d'un pointeur"
+            />
+            Nous connaitre
+          </li></Router-Link
         >
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/public/icons/map-icon.svg"
-            alt="Icone d'un pointeur"
-          />
-          Nous connaitre
-        </li>
         <li
           class="font-semibold flex items-center gap-2 hover:underline hover:decoration-dark_primary_green hover:underline-offset-4"
         >

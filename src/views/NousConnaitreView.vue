@@ -1,0 +1,99 @@
+<script setup>
+import Comp_Header from "../composants/Comp_Header.vue";
+import Comp_CardButton from "../composants/Comp_CardButton.vue";
+import Comp_Map from "../composants/Comp_Map.vue";
+import Comp_Footer from "../composants/Comp_Footer.vue";
+</script>
+
+<template>
+  <Comp_Header />
+
+  <h2
+    class="text-desktop_h1 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+  >
+    <span class="text-primary_blue">Notre</span> équipe
+    <span class="text-primary_blue">et son emplacement</span> géographique
+  </h2>
+
+  <div class="grid grid-cols-2 gap-10">
+    <div>
+      <h3
+        class="text-desktop_h2 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+      >
+        <span class="text-primary_blue">Notre</span> équipe
+      </h3>
+
+      <p class="font-quicksand ml-10 mt-10">
+        Notre équipe est composée de professionnels à votre écoute, spécialisés
+        dans le domaine de la podologie.
+      </p>
+
+      <p class="font-quicksand ml-10 mt-5">
+        Forts de leur expertise et de leur dévouement, ils sont déterminés à
+        traiter vos problèmes et améliorer votre bien-être.
+        <span class="font-semibold"
+          >→ Rendez-vous réalisez sur Doctolib. ←</span
+        >
+      </p>
+    </div>
+  </div>
+
+  <div class="flex gap-10 ml-10 mr-10 mt-10">
+    <Comp_CardButton
+      nom="Esther JURY VERMOT DES ROCHES"
+      diplomes="- Diplôme de la FIFA en médecine du football - Diplôme d'État de pédicure-podologue - Master en biomécanique humaine"
+      imageSrc="/public/images/EstherJURYVERMOTDESROCHES.webp"
+      imageAlt="Image de Esther JUTY VERMOT DES ROCHES"
+    />
+    <Comp_CardButton
+      nom="Anaëlle SELISE"
+      diplomes="- Licence Biologie-santé - Diplôme d'État de pédicure-podologue"
+      imageSrc="/public/images/AnaëlleSELISE.webp"
+      imageAlt="Image de Anaëlle SELISE"
+    />
+    <Comp_CardButton
+      nom="Valentin EYSSERIC"
+      diplomes="- Diplôme d'État de pédicure-podologue"
+      imageSrc="/public/images/ValentinEYSSERIC.webp"
+      imageAlt="Image de Valentin EYSSERIC"
+    />
+  </div>
+
+  <div class="grid grid-cols-2 gap-10">
+    <div>
+      <h3
+        class="text-desktop_h2 font-raleway font-semibold text-dark_primary_green ml-10 mt-20"
+      >
+        <span class="text-primary_blue">Emplacement</span> géographique
+      </h3>
+
+      <p class="font-quicksand ml-10 mt-10">Maison de Santé CitéVie</p>
+      <p class="font-quicksand ml-10">
+        → 56 Rue Jacques Foillet, 25200 Montbéliard
+      </p>
+
+      <div class="ml-10 mt-5 flex">
+        <img
+          class="w-5"
+          src="/public/icons/phone-icon.svg"
+          alt="Icone d'un téléphone"
+        />
+        <p class="font-quicksand ml-2">Contact : 03 81 96 26 27</p>
+      </div>
+
+      <p class="font-quicksand ml-10 mt-6">Informations pratiques :</p>
+      <ul class="list-disc font-quicksand ml-16">
+        <li class="mt-1">2ème étage</li>
+        <li class="mt-1">Accès hadicapé</li>
+        <li class="mt-1">Parking gratuit</li>
+        <li class="mt-1">Arrêt de bus FROMAGERIE</li>
+      </ul>
+    </div>
+
+    <div class="mt-36 -ml-52"><Comp_Map /></div>
+  </div>
+
+  <Comp_Footer class="bottom-0 top-[1160px] absolute w-full" />
+</template>
+
+<style></style>
