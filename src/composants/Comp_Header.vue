@@ -4,7 +4,7 @@ import Logo from "../composants/Comp_Logo.vue";
 
 <template>
   <div class="flex bg-secondary-beige h-16 items-center">
-    <Logo class="ml-10" />
+    <Router-Link to="/"><Logo class="ml-10" /></Router-Link>
     <nav>
       <ul class="flex font-quicksand gap-14 ml-80">
         <Router-Link to="/semelles-orthopediques">
