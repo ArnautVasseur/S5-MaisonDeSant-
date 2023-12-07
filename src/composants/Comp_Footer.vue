@@ -1,12 +1,20 @@
 <script setup>
 import Logo from "../composants/Comp_Logo.vue";
-import Comp_Circle from "../composants/Comp_Circle.vue"
+import Comp_Circle from "../composants/Comp_Circle.vue";
 </script>
 
 <template>
   <div class="grid bg-secondary-beige h-80 items-center overflow-hidden">
-    <Comp_Circle class="absolute -top-[50px] -left-[50px]" size="180" color="#BAE9D5"/>
-    <Comp_Circle class="absolute -bottom-7 -right-7" size="142.73" color="#BAE9D5"/>
+    <Comp_Circle
+      class="absolute -top-[50px] -left-[50px]"
+      size="180"
+      color="#BAE9D5"
+    />
+    <Comp_Circle
+      class="absolute -bottom-7 -right-7"
+      size="142.73"
+      color="#BAE9D5"
+    />
     <div class="flex justify-center">
       <img
         class="h-20"
@@ -17,24 +25,28 @@ import Comp_Circle from "../composants/Comp_Circle.vue"
     </div>
     <nav>
       <ul class="flex justify-center font-quicksand gap-14">
-        <li class="flex items-center gap-2">
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/icons/map-icon.svg"
-            alt="Icone d'un pointeur"
-          />
-          Nous connaitre
-        </li>
-        <li class="font-semibold flex items-center gap-2">
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/icons/icon-devis.svg"
-            alt="Icone d'un document"
-          />
-          Faire mon devis
-        </li>
+        <Router-Link to="/nous-connaitre">
+          <li class="flex items-center gap-2">
+            <a href=""></a>
+            <img
+              class="w-5"
+              src="/icons/map-icon.svg"
+              alt="Icone d'un pointeur"
+            />
+            Nous connaitre
+          </li></Router-Link
+        >
+        <Router-Link to="/faire-devis">
+          <li class="font-semibold flex items-center gap-2">
+            <a href=""></a>
+            <img
+              class="w-5"
+              src="/icons/icon-devis.svg"
+              alt="Icone d'un document"
+            />
+            Faire mon devis
+          </li></Router-Link
+        >
       </ul>
     </nav>
     <div class="m-auto w-4/5 h-0.5 bg-medium_primary_green"></div>

@@ -7,29 +7,29 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
 <template>
   <Comp_Header />
 
-  <p
-    class="text-desktop_h1 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+  <h2
+    class="sm:text-desktop_h1 text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
   >
     <span class="text-primary_blue">Les</span> traitements
-  </p>
+  </h2>
 
-  <div class="grid grid-cols-2 gap-10">
+  <div class="grid sm:grid-cols-2 grid-cols-1 gap-10">
     <div>
-      <p
-        class="text-desktop_h2 font-raleway font-semibold text-primary_blue ml-10 mt-10"
+      <h3
+        class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-primary_blue ml-10 mt-10"
       >
         Comment ce passe les soins ?
-      </p>
+      </h3>
 
-      <p class="font-quicksand ml-10 mt-10">
+      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-10">
         Chaque traitement à comme tarif → 35€
       </p>
 
-      <p class="font-quicksand ml-10 mt-5">
+      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-5">
         Pour chaque consultation pour le traitement de vos pieds, la durée
         moyenne est d'environ 30 minutes.
       </p>
-      <p class="font-quicksand ml-10">
+      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10">
         Les soins sont réalisés par des professionnels de la santé, qui
         utilisent des produits et des outils soigneusement sélectionnés pour
         garantir une approche médicale de qualité.
@@ -38,35 +38,35 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
 
     <div class="flex mt-11 gap-10 items-center m-auto">
       <img
-        class="h-[273px]"
+        class="sm:h-[273px] h-[152px]"
         src="/public/images/outils.png"
         alt="Instruments utilisés par le pédicure-podologue"
       />
       <img
-        class="h-[273px]"
+        class="sm:h-[273px] h-[152px]"
         src="/public/images/cremes.png"
         alt="Produits proposés à la vente "
       />
     </div>
   </div>
 
-  <div class="grid grid-cols-2 gap-10 mt-10">
+  <div class="grid sm:grid-cols-2 grid-cols-1 gap-10 mt-10">
     <div class="m-auto">
       <img
-        class="h-[273px]"
+        class="sm:h-[273px] h-[205px]"
         src="/public/images/siege.png"
         alt="Fauteuil où se déroule les soins"
       />
     </div>
 
-    <div class="m-auto mr-28">
-      <p class="font-quicksand">
+    <div class="m-auto sm:mr-28 ml-5 mr-5">
+      <p class="font-quicksand sm:text-desktop text-desktop_small">
         Notre équipe s'engage à créer une atmosphère accueillante et
         professionnelle, en mettant l'accent sur la confidentialité et le
         respect des normes sanitaires.
       </p>
 
-      <p class="font-quicksand mt-5">
+      <p class="font-quicksand sm:text-desktop text-desktop_small mt-5">
         Nous sommes disponibles pour répondre à toutes vos questions relatives
         aux soins podologiques, cherchant constamment à rendre chaque
         consultation aussi agréable que bénéfique pour vous.
@@ -74,13 +74,13 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
   </div>
 
-  <p
-    class="text-desktop_h2 font-raleway font-semibold text-primary_blue ml-10 mt-28"
+  <h3
+    class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-primary_blue ml-10 mt-28"
   >
     Les différents soins que nous réalisons
-  </p>
+  </h3>
 
-  <div class="grid grid-cols-3 gap-10 mt-10 ml-10 mr-10">
+  <div class="grid sm:grid-cols-3 grid-cols-1 gap-10 mt-10 ml-10 mr-10">
     <Comp_Card
       name="Orthonyxie"
       description="Traitement pour les ongles incarnés pour redresser l'ongle afin de soulager la douleur et l'inconfort."
@@ -149,7 +149,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     />
   </div>
 
-  <Comp_Footer class="bottom-0 top-[1960px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[1960px] top-[3800px] absolute w-full" />
 </template>
 
 <style></style>
