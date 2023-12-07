@@ -57,7 +57,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
         </li>
       </ul>
 
-      <Router-Link to="/"
+      <Router-Link to="/faire-devis"
         ><Button name="Faire mon devis" class="mt-10 ml-auto mr-28"
       /></Router-Link>
     </div>

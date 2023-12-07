@@ -44,18 +44,21 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
       diplomes="- Diplôme de la FIFA en médecine du football - Diplôme d'État de pédicure-podologue - Master en biomécanique humaine"
       imageSrc="/public/images/EstherJURYVERMOTDESROCHES.webp"
       imageAlt="Image de Esther JUTY VERMOT DES ROCHES"
+      url="https://www.doctolib.fr/pedicure-podologue/grand-charmont/esther-jury-vermot-des-roches"
     />
     <Comp_CardButton
       nom="Anaëlle SELISE"
       diplomes="- Licence Biologie-santé - Diplôme d'État de pédicure-podologue"
       imageSrc="/public/images/AnaëlleSELISE.webp"
       imageAlt="Image de Anaëlle SELISE"
+      url="https://www.doctolib.fr/pedicure-podologue/montbeliard/anaelle-selise"
     />
     <Comp_CardButton
       nom="Valentin EYSSERIC"
       diplomes="- Diplôme d'État de pédicure-podologue"
       imageSrc="/public/images/ValentinEYSSERIC.webp"
       imageAlt="Image de Valentin EYSSERIC"
+      url="https://www.doctolib.fr/pedicure-podologue/montbeliard/valentin-eysseric"
     />
   </div>
 

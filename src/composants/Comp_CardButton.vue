@@ -6,6 +6,7 @@ const props = defineProps({
   imageAlt: String,
   nom: String,
   diplomes: String,
+  url: String,
 });
 </script>
 
@@ -32,6 +33,8 @@ const props = defineProps({
         </div>
       </div>
     </div>
-    <Button class="m-auto mb-5" name="Prendre rendez-vous" show-icon="true" />
+    <a :href="url"
+      ><Button class="m-auto mb-5" name="Prendre rendez-vous" show-icon="true"
+    /></a>
   </div>
 </template>
