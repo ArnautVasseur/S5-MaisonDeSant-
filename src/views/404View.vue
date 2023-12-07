@@ -5,7 +5,7 @@ import Button from "../composants/Buttons/Comp_Button.vue";
 </script>
 
 <template>
-  <div class="overflow-y-hidden">
+  <div ref="scrollContainer" class="scroll-container">
     <header class="flex items-center gap-10">
       <img
         src="images/IV_logo_.JPG"
@@ -63,10 +63,19 @@ import Button from "../composants/Buttons/Comp_Button.vue";
       Erreur 404 - Page non trouvée. Veuillez vérifier l'URL ou retourner à la
       page d'accueil.
     </p>
-    <Router-Link to="/"
-      ><Button name="Retour à la page d’accueil" class="mt-10 m-auto"
-    /></Router-Link>
+    <Router-Link to="/">
+      <Button name="Retour à la page d’accueil" class="mt-10 m-auto"></Button>
+    </Router-Link>
   </div>
 </template>
 
-<style></style>
+<script>
+export default {
+  mounted() {
+    document.body.style.overflow = 'hidden';
+  },
+  beforeDestroy() {
+    document.body.style.overflow = '';
+  },
+};
+</script>
