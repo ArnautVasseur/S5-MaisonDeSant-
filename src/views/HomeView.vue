@@ -10,6 +10,8 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
 <template>
   <Comp_Header />
 
+  <div class="h-[600px] bg-gradient-to-r from-[#124559] to-white"></div>
+
   <h2
     class="sm:text-desktop_h2 text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
   >
