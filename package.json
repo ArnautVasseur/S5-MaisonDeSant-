@@ -7,7 +7,9 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
     "leaflet": "^1.9.4",
+    "pdf-lib": "^1.17.1",
     "tailwindcss-animation": "^0.1.2",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"

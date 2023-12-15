@@ -5,7 +5,7 @@ import Button from "../composants/Buttons/Comp_Button.vue";
 </script>
 
 <template>
-  <div ref="scrollContainer" class="scroll-container">
+  <div>
     <header class="flex items-center gap-10">
       <img
         src="images/IV_logo.png"
