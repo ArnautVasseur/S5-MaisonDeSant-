@@ -1,9 +1,7 @@
 <script setup>
 import Comp_Header from "../composants/Comp_Header.vue";
 import Comp_IconHomeView from "../composants/Comp_IconHomeView.vue";
-import Button from "../composants/Buttons/Comp_Button.vue";
 import Comp_Card from "../composants/Comp_Card.vue";
-import Comp_CardButton from "../composants/Comp_CardButton.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
 </script>
 
@@ -39,7 +37,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
   </div>
 
   <h2
-    class="sm:text-desktop_h1 text-center text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+    class="sm:text-desktop_h1 text-center text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-28"
   >
     <span class="text-black">Des semelles orthopédiques<br /></span>
     pour tous
@@ -92,52 +90,41 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     />
   </div>
 
-  <h2
-    class="sm:text-desktop_h2 text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
-  >
-    <span class="text-primary_blue">Soins et examens pour </span>vos pathologies
-  </h2>
-
-  <div class="sm:flex grid">
-    <div>
-      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-10">
-        Explorez notre liste de problèmes podologiques
-      </p>
-      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10">
-        et découvrez les informations concernant votre condition et les soins
-        qui y sont associés.
-      </p>
-
-      <p
-        class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-5 font-semibold"
-      >
-        Quelques exemples :
-      </p>
+  <div class="h-[700px] bg-gradient-to-r from-[#DDF4EA] to-[#BAE9D5] mt-36">
+    <h2
+      class="sm:text-desktop_h1 text-desktop_h4 font-raleway font-semibold text-black pt-32 pl-24"
+    >
+      <span class="text-[#3C9E85]">Soins et examens pour </span>vos
+      <br />pathologies
+    </h2>
+    <div class="flex">
+      <Comp_Card
+        name="Orthonyxie"
+        description="Traitement pour les ongles incarnés pour redresser l'ongle afin de soulager la douleur et l'inconfort."
+        imageSrc="/public/images/orthonxie.jpg"
+        imageAlt="Un ongle avec orthonxie"
+      />
+      <Comp_Card
+        name="Orthoplastie"
+        description="L'orthoplastie crée des appareillages sur mesure pour améliorer la fonction musculo-squelettique et le confort des patients."
+        imageSrc="/public/images/orthoplastie.png"
+        imageAlt="Un ongle avec orthoplastie"
+      />
+      <Comp_Card
+        name="Bilan podologique"
+        description="Evaluation spécialisée des pieds visant à identifier et traiter les problèmes podologiques, améliorant ainsi la santé et la mobilité des patients."
+        imageSrc="/public/images/Bilanpodologique.png"
+        imageAlt="Un pied pour un bilan podologique"
+      />
     </div>
-    <Router-Link to="/traitement">
-      <Button name="Rechercher les soins réalisables" class="mt-10 ml-20"
-    /></Router-Link>
-  </div>
 
-  <div class="grid sm:grid-cols-3 grid-cols-1 gap-10 mt-10 ml-10 mr-10">
-    <Comp_Card
-      name="Orthonyxie"
-      description="Traitement pour les ongles incarnés pour redresser l'ongle afin de soulager la douleur et l'inconfort."
-      imageSrc="/public/images/orthonxie.jpg"
-      imageAlt="Un ongle avec orthonxie"
-    />
-    <Comp_Card
-      name="Orthoplastie"
-      description="L'orthoplastie crée des appareillages sur mesure pour améliorer la fonction musculo-squelettique et le confort des patients."
-      imageSrc="/public/images/orthoplastie.png"
-      imageAlt="Un ongle avec orthoplastie"
-    />
-    <Comp_Card
-      name="Bilan podologique"
-      description="Evaluation spécialisée des pieds visant à identifier et traiter les problèmes podologiques, améliorant ainsi la santé et la mobilité des patients."
-      imageSrc="/public/images/Bilanpodologique.png"
-      imageAlt="Un pied pour un bilan podologique"
-    />
+    <Router-Link to="/traitement">
+      <button
+        class="mt-10 rounded-3xl bg-primary_beige font-quicksand font-semibold text-dark_primary_green text-desktop px-10 h-10 hover:bg-hover-green hover:text-white duration-150 ease-out"
+      >
+        Rechercher les soins réalisables
+      </button></Router-Link
+    >
   </div>
 
   <h2
@@ -167,37 +154,13 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     /></Router-Link>
   </div>
 
-  <div class="sm:flex grid gap-10 ml-10 mr-10 mt-10">
-    <Comp_CardButton
-      nom="Esther JURY VERMOT DES ROCHES"
-      diplomes="- Diplôme de la FIFA en médecine du football - Diplôme d'État de pédicure-podologue - Master en biomécanique humaine"
-      imageSrc="/public/images/EstherJURYVERMOTDESROCHES.webp"
-      imageAlt="Image de Esther JUTY VERMOT DES ROCHES"
-      url="https://www.doctolib.fr/pedicure-podologue/grand-charmont/esther-jury-vermot-des-roches"
-    />
-    <Comp_CardButton
-      nom="Anaëlle SELISE"
-      diplomes="- Licence Biologie-santé - Diplôme d'État de pédicure-podologue"
-      imageSrc="/public/images/AnaëlleSELISE.webp"
-      imageAlt="Image de Anaëlle SELISE"
-      url="https://www.doctolib.fr/pedicure-podologue/montbeliard/anaelle-selise"
-    />
-    <Comp_CardButton
-      nom="Valentin EYSSERIC"
-      diplomes="- Diplôme d'État de pédicure-podologue"
-      imageSrc="/public/images/ValentinEYSSERIC.webp"
-      imageAlt="Image de Valentin EYSSERIC"
-      url="https://www.doctolib.fr/pedicure-podologue/montbeliard/valentin-eysseric"
-    />
-  </div>
-
   <h2
     class="sm:text-desktop_h2 text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
   >
     <span class="text-primary_blue">Vos</span> témoignages
   </h2>
 
-  <Comp_Footer class="bottom-0 sm:top-[1500px] top-[3060px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[3000px] top-[3060px] absolute w-full" />
 </template>
 
 <style scoped></style>
