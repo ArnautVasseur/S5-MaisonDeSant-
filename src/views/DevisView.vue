@@ -8,15 +8,14 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
   <Comp_Header />
 
   <h2
-    class="sm:text-desktop_h1 text-desktop_h3 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+    class="sm:text-desktop_h1 text-desktop_h3 font-raleway font-semibold text-dark_primary_green ml-10 mt-10 text-center"
   >
-    <span class="text-primary_blue">Votre devis pour vos</span> semelles
-    orthopédiques
+    <span class="text-black">Votre devis pour vos</span> semelles orthopédiques
   </h2>
   <h2
-    class="sm:text-desktop_h1 text-desktop_h3 font-raleway font-semibold text-dark_primary_green ml-10"
+    class="sm:text-desktop_h1 text-desktop_h3 font-raleway font-semibold text-dark_primary_green ml-10 text-center"
   >
-    <span class="text-primary_blue">par mail </span> sous 24h
+    <span class="text-black">par mail </span> sous 24h
   </h2>
 
   <div class="grid sm:grid-cols-2 grid-cols-1 gap-10">
