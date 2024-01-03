@@ -9,10 +9,10 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
   <Comp_Header />
 
   <h2
-    class="sm:text-desktop_h1 text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
+    class="sm:text-desktop_h1 text-desktop_h4 font-raleway font-semibold text-dark_primary_green ml-10 mt-10 text-center"
   >
-    <span class="text-primary_blue">Notre</span> équipe
-    <span class="text-primary_blue">et son emplacement</span> géographique
+    <span class="text-black">Notre</span> équipe <br />
+    <span class="text-black">et son emplacement</span> géographique
   </h2>
 
   <div class="grid grid-cols-2 gap-10">
@@ -20,7 +20,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
       <h3
         class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
       >
-        <span class="text-primary_blue">Notre</span> équipe
+        <span class="text-black">Notre</span> équipe
       </h3>
 
       <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-10">
@@ -42,21 +42,21 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     <Comp_CardButton
       nom="Esther JURY VERMOT DES ROCHES"
       diplomes="- Diplôme de la FIFA en médecine du football - Diplôme d'État de pédicure-podologue - Master en biomécanique humaine"
-      imageSrc="/public/images/EstherJURYVERMOTDESROCHES.webp"
+      imageSrc="/public/images/EstherJURYVERMOTDESROCHES.jpg"
       imageAlt="Image de Esther JUTY VERMOT DES ROCHES"
       url="https://www.doctolib.fr/pedicure-podologue/grand-charmont/esther-jury-vermot-des-roches"
     />
     <Comp_CardButton
       nom="Anaëlle SELISE"
       diplomes="- Licence Biologie-santé - Diplôme d'État de pédicure-podologue"
-      imageSrc="/public/images/AnaëlleSELISE.webp"
+      imageSrc="/public/images/AnaëlleSELISE.jpg"
       imageAlt="Image de Anaëlle SELISE"
       url="https://www.doctolib.fr/pedicure-podologue/montbeliard/anaelle-selise"
     />
     <Comp_CardButton
       nom="Valentin EYSSERIC"
       diplomes="- Diplôme d'État de pédicure-podologue"
-      imageSrc="/public/images/ValentinEYSSERIC.webp"
+      imageSrc="/public/images/ValentinEYSSERIC.jpg"
       imageAlt="Image de Valentin EYSSERIC"
       url="https://www.doctolib.fr/pedicure-podologue/montbeliard/valentin-eysseric"
     />
@@ -67,7 +67,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
       <h3
         class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-20"
       >
-        <span class="text-primary_blue">Emplacement</span> géographique
+        <span class="text-black">Emplacement</span> géographique
       </h3>
 
       <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-10">
