@@ -88,10 +88,8 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[600px] top-[1000px] absolute w-full mt-24" />
+  <Comp_Footer class="bottom-0 sm:top-[600px] top-[1000px] absolute w-full mt-36" />
 </template>
-
-
 
 <style>
 
