@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
+    "downloadjs": "^1.4.7",
     "leaflet": "^1.9.4",
     "pdf-lib": "^1.17.1",
     "tailwindcss-animation": "^0.1.2",

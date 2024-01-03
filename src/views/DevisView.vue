@@ -2,6 +2,7 @@
 import Comp_Header from "../composants/Comp_Header.vue";
 import Comp_Form from "../composants/Comp_Form.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
+
 </script>
 
 <template>
@@ -87,7 +88,11 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[600px] top-[1000px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[600px] top-[1000px] absolute w-full mt-24" />
 </template>
 
-<style></style>
+
+
+<style>
+
+</style>

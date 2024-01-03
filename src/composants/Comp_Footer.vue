@@ -7,12 +7,12 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
   <div class="grid bg-secondary-beige h-80 items-center overflow-hidden">
     <Comp_Circle
       class="absolute -top-[50px] -left-[50px]"
-      size="180"
+      :size="180"
       color="#BAE9D5"
     />
     <Comp_Circle
       class="absolute -bottom-7 -right-7"
-      size="142.73"
+      :size="142.73"
       color="#BAE9D5"
     />
     <div class="flex justify-center">
