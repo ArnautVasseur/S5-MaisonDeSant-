@@ -1,12 +1,23 @@
+<script setup>
+
+defineProps({
+  option1: String,
+  option2: String,
+  option3: String,
+})
+
+</script>
+
+
 <template>
   <select
     name="pointure"
     id="pointure-select"
     class="rounded-lg bg-clear-primary-green font-quicksand text-desktop w-80 h-10"
   >
-    <option value="" class="text-center">Sélectionner une pointure</option>
-    <option value="<28" class="text-center">moins de 28</option>
-    <option value="28 au 37" class="text-center">du 28 au 37</option>
-    <option value="> 37" class="text-center">plus de 37</option>
+    <option class="text-center">Sélectionner une pointure</option>
+    <option value={{option1}} class="text-center">{{option1}}</option>
+    <option value={{option2}} class="text-center">{{option2}}</option>
+    <option value={{option3}} class="text-center">{{option3}}</option>
   </select>
 </template>
