@@ -18,17 +18,16 @@ async function login() {
 
   if (error) {
     // Handle authentication error
-    if (error.message.includes('Invalid login credentials')) {
+    if (error.message.includes('Veuillez vérifier votre indentifiant ou mot de passe')) {
       // Display an error message to the user
-      errorMessage.value = 'Invalid login credentials';
+      errorMessage.value = 'Veuillez vérifier votre indentifiant ou mot de passe';
     } else {
       // Handle other authentication errors
-      errorMessage.value = 'An error occurred during login';
+      errorMessage.value = 'Une erreur est survenue';
     }
     console.error(error);
   } else {
-    // Authentication successful, display success message
-    successMessage.value = 'Successfully logged in!';
+    successMessage.value = 'Vous êtes bien connecté !';
     console.log(data);
   }
 }
@@ -44,6 +43,7 @@ async function logout() {
   if (error) {
     console.log(error);
   } else {
+    successMessage.value = 'Vous êtes déconnecté avec succès !';
     console.log("Sign out success");
   }
 }

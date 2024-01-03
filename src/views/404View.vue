@@ -1,11 +1,15 @@
 <script setup>
 import Logo from "../composants/Comp_Logo.vue";
 import Circle from "../composants/Comp_Circle.vue";
-import Button from "../composants/Buttons/Comp_Button.vue";
+import Button from "../composants/Buttons/Comp_Button.vue"
+
+var x=window.scrollX;
+var y=window.scrollY;
+window.onscroll=function(){window.scrollTo(x, y);};
 </script>
 
 <template>
-  <div>
+  <div :class="{ 'custom-scrollbar-view': specificViewActive }" id="myContainer">
     <header class="flex items-center gap-10">
       <img
         src="images/IV_logo.png"
@@ -15,28 +19,28 @@ import Button from "../composants/Buttons/Comp_Button.vue";
       <Logo />
       <Circle
         color="#BAE9D5"
-        size="300"
+        :size="300"
         class="absolute left-[1290px] bottom-[560px] hidden sm:block"
       />
     </header>
     <Circle
       color="#BAE9D5"
-      size="150"
+      :size="150"
       class="absolute left-[123px] top-60 hidden sm:block"
     />
     <Circle
       color="#DDF4EA"
-      size="250"
+      :size="250"
       class="absolute right-[1315px] bottom-24 hidden sm:block"
     />
     <Circle
       color="#BAE9D5"
-      size="400"
+      :size="400"
       class="absolute left-[1080px] -bottom-[250px] hidden sm:block"
     />
     <Circle
       color="#DDF4EA"
-      size="400"
+      :size="400"
       class="absolute left-[1290px] bottom-0 hidden sm:block"
     />
 
@@ -68,14 +72,3 @@ import Button from "../composants/Buttons/Comp_Button.vue";
     </Router-Link>
   </div>
 </template>
-
-<script>
-export default {
-  mounted() {
-    document.body.style.overflow = 'hidden';
-  },
-  beforeDestroy() {
-    document.body.style.overflow = '';
-  },
-};
-</script>

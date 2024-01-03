@@ -48,7 +48,7 @@ const router = createRouter({
       name: 'Authentification', 
       component: AuthView
     },
-  ]
+  ],
 })
 
 export default router
