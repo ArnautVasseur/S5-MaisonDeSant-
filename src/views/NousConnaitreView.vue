@@ -95,7 +95,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
         class="list-disc font-quicksand sm:text-desktop text-desktop_small ml-16"
       >
         <li class="mt-1">2ème étage</li>
-        <li class="mt-1">Accès hadicapé</li>
+        <li class="mt-1">Accès handicapé</li>
         <li class="mt-1">Parking gratuit</li>
         <li class="mt-1">Arrêt de bus FROMAGERIE</li>
       </ul>

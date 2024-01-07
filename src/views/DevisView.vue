@@ -13,11 +13,6 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
   >
     <span class="text-black">Votre devis pour vos</span> semelles orthopédiques
   </h2>
-  <h2
-    class="sm:text-desktop_h1 text-desktop_h3 font-raleway font-semibold text-dark_primary_green ml-10 text-center"
-  >
-    <span class="text-black">par mail </span> sous 24h
-  </h2>
 
   <div class="grid sm:grid-cols-2 grid-cols-1 gap-10">
     <div>
@@ -83,12 +78,12 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
         </p>
       </div>
     </div>
-    <div class="mt-10 ml-16">
+    <div class="ml-16">
       <Comp_Form />
     </div>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[600px] top-[1000px] absolute w-full mt-36" />
+  <Comp_Footer class="bottom-0 sm:top-[600px] top-[1000px] absolute w-full mt-32" />
 </template>
 
 <style>

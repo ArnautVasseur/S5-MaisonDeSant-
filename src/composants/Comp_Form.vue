@@ -38,6 +38,14 @@ const reglement = ref()
       </div>
       <div class="mb-4">
         <input
+          type="date"
+          id="birthday_input"
+          class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green"
+          placeholder="Date de naissance *"
+        />
+      </div>
+      <div class="mb-4">
+        <input
           type="text"
           id="ssn_input"
           class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green"
@@ -77,7 +85,7 @@ const reglement = ref()
 
     <Button @click="modifyPdf" name="Demander un devis" class="mt-5" />
 
-    <div id="ErrorMessage" style="display: none; color: red;"></div>
+    <div class="mt-2" id="ErrorMessage" style="display: none; color: red;"></div>
   </div>
 
 </template>
@@ -86,6 +94,8 @@ const reglement = ref()
 
 import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import download from 'downloadjs';
+import emailjs from 'emailjs-com';
+
 
 const choice = ref()
 const result = ref()
@@ -100,199 +110,429 @@ export default {
     methods: {
         async modifyPdf() {
             try {
-              switch(soin.value){
-                case "CONSULTATION DE PÉDICURIE":
-                    choice.value = 1;
-                    break;
-                case "ORTHOPLASTIE":
-                    choice.value = 2;
-                    break;
-                case "ONYCHOPLASTIE":
-                    choice.value = 3;
-                    break;
-                case "ORTHONYXIE":
-                    choice.value = 4;
-                    break;
-                case "SEMELLES ORTHOPÉDIQUES":
-                    choice.value = 5;
-                    break;
-                default:
-                    choice.value = 0;
-                    break;
-              }
-
-              switch(reglement.value){
-                case "Chèque":
-                    display.value = 1;
-                    break;
-                case "Espèces":
-                    display.value = 2;
-                    break;
-                case "Carte Bleue":
-                    display.value = 3;
-                    break;
-                default:
-                    display.value = 0;
-                    break;
-              }
-
-              switch(pointure.value){
-                case "Moins de 28":
-                    result.value = 1;
-                    break;
-                case "Entre 28 et 37":
-                    result.value = 2;
-                    break;
-                case "Plus de 37":
-                    result.value = 3;
-                    break;
-                default:
-                    result.value = 0;
-                    break;
-              }
-
-              if(result.value == 0 || display.value == 0 || choice.value == 0){
-                  // Show success message
-                  ErrorMessage.textContent = "Veuillez remplir tous les champs";
-                  ErrorMessage.style.display = 'block';
-
-                  // Optional: Hide the success message after a certain time (e.g., 3 seconds)
-                  setTimeout(() => {
-                      ErrorMessage.style.display = 'none';
-                  }, 3000);
-
-              } else {
-
-                const size = 0
-
-                switch(result.value){
-                  case 1:
-                    choice.value = 5
-                    break
-                  case 2:
-                    choice.value = 6
-                    break
-                  case 3:
-                    choice.value = 7
-                    break
+                console.log("enter download function")
+                switch(soin.value){
+                    case "CONSULTATION DE PÉDICURIE":
+                        choice.value = 1;
+                        break;
+                    case "ORTHOPLASTIE":
+                        choice.value = 2;
+                        break;
+                    case "ONYCHOPLASTIE":
+                        choice.value = 3;
+                        break;
+                    case "ORTHONYXIE":
+                        choice.value = 4;
+                        break;
+                    case "SEMELLES ORTHOPÉDIQUES":
+                        choice.value = 5;
+                        break;
+                    default:
+                        choice.value = 0;
+                        break;
                 }
 
-                const url = '';
-
-                switch(choice.value){
-                  case 1:
-                    url = '../public/devis/Consultation_de_pedicurie.pdf';
-                    break
-                  case 2:
-                    url = '../public/devis/Consultation_de_pedicurie.pdf';
-                    break
-                  case 3:
-                    url = '../public/devis/Onychoplastie.pdf';
-                    break
-                  case 4:
-                    url = '../public/devis/Orthonyxie.pdf';
-                    break
-                  case 5:
-                    url = '../public/devis/Inférieur_à_28.pdf';
-                    break
-                  case 6:
-                    url = '../public/devis/Entre_28_et_37.pdf';
-                    break
-                  case 7:
-                    url = '../public/devis/Supérieur_à_37.pdf';
-                    break
+                switch(reglement.value){
+                    case "Chèque":
+                        display.value = 1;
+                        break;
+                    case "Carte Bleue":
+                        display.value = 2;
+                        break;
+                    case "Espèces":
+                        display.value = 3;
+                        break;
+                    default:
+                        display.value = 0;
+                        break;
                 }
 
-                const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
-                const pdfDoc = await PDFDocument.load(existingPdfBytes);
-                const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-                const pages = pdfDoc.getPages();
-                const firstPage = pages[0];
-                const { width, height } = firstPage.getSize();
+                switch(pointure.value){
+                    case "Moins de 28":
+                        result.value = 1;
+                        break;
+                    case "Entre 28 et 37":
+                        result.value = 2;
+                        break;
+                    case "Plus de 37":
+                        result.value = 3;
+                        break;
+                    default:
+                        result.value = 0;
+                        break;
+                }
+
                 const patient_first_name = document.getElementById("first_name_input").value;
                 const patient_last_name = document.getElementById("last_name_input").value;
+                const patient_birthday = document.getElementById("birthday_input").value;
                 const patient_ssn = document.getElementById("ssn_input").value;
-                const now = new Date();
-                const formattedDate = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
-                const currentDate = formattedDate;
-                const date = currentDate
-                
-                console.log(patient_first_name)
 
-                firstPage.drawText(patient_first_name, {
-                      x: 405,
-                      y: 681.5,
-                      size: 12,
-                      font: helveticaFont,
-                      color: rgb(0, 0, 0),
-                  });
+                if(result.value == 0 || display.value == 0 || choice.value == 0 || patient_first_name == "" || patient_last_name == "" || patient_birthday == "" || patient_ssn == ""){
+                    
+                    ErrorMessage.textContent = "Veuillez remplir tous les champs";
+                    ErrorMessage.style.display = 'block';
 
-                firstPage.drawText(patient_last_name, {
-                      x: 405,
-                      y: 660,
-                      size: 12,
-                      font: helveticaFont,
-                      color: rgb(0, 0, 0),
-                  });
-                
-                  firstPage.drawText(patient_ssn, {
-                      x: 428,
-                      y: 656,
-                      size: 10,
-                      font: helveticaFont,
-                      color: rgb(0, 0, 0),
-                  });
+                    setTimeout(() => {
+                        ErrorMessage.style.display = 'none';
+                    }, 3000);
 
-                  firstPage.drawText(date, {
-                      x: 355,
-                      y: 632.5,
-                      size: 10,
-                      font: helveticaFont,
-                      color: rgb(0, 0, 0),
-                  });
+                } else {
+                    //variable qui gère quel devis pdf à utiliser
+                    var url = '';
+                    // si ce n'est pas un devis pour semelles orthopédique
+                    if( choice.value == 1 ){
 
-                  switch(display.value){
-                      //Chèque
-                      case 1:
-                          firstPage.drawText("x", {
-                              x: 117,
-                              y: 412,
-                              size: 20,
-                              font: helveticaFont,
-                              color: rgb(0, 0, 0),
-                          });
-                          break;
-                      //Carte Bleue
-                      case 2:
-                          firstPage.drawText("x", {
-                              x: 117,
-                              y: 399.5,
-                              size: 20,
-                              font: helveticaFont,
-                              color: rgb(0, 0, 0),
-                          });
-                          break;
-                      //Espèces
-                      case 3:
-                          firstPage.drawText("x", {
-                              x: 117,
-                              y: 386,
-                              size: 20,
-                              font: helveticaFont,
-                              color: rgb(0, 0, 0),
-                          });
-                          break;
-                  }
+                    url = '/devis/Consultation_de_pedicurie.pdf';
 
-                const pdfBytes = await pdfDoc.save();
+                    const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
+                    const pdfDoc = await PDFDocument.load(existingPdfBytes);
+                    const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+                    const pages = pdfDoc.getPages();
+                    const firstPage = pages[0];
+                    const { width, height } = firstPage.getSize();
+                    const now = new Date();
+                    const formattedDate = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+                    const currentDate = formattedDate;
+                    const date = currentDate
 
-                download(pdfBytes, 'devis.pdf', 'application/pdf');
-              }
+                    firstPage.drawText(patient_last_name, {
+                            x: 354,
+                            y: 708,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
 
-          } catch (error) {
-              console.error("An error occurred:", error);
-          }
-      },
+                    firstPage.drawText(patient_first_name, {
+                            x: 370,
+                            y: 696,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        firstPage.drawText(patient_birthday, {
+                            x: 426,
+                            y: 684.8,
+                            size: 10,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        firstPage.drawText(date, {
+                            x: 397,
+                            y: 660,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        switch(display.value){
+                            //Chèque
+                            case 1:
+                                firstPage.drawText("x", {
+                                    x: 49,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                            //Carte Bleue
+                            case 2:
+                                firstPage.drawText("x", {
+                                    x: 100,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                            //Espèces
+                            case 3:
+                                firstPage.drawText("x", {
+                                    x: 182,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                        }
+                        const pdfBytes = await pdfDoc.save();
+                        download(pdfBytes, 'devis.pdf', 'application/pdf');
+                    }
+
+                    else if( choice.value == 2 ){
+
+                    url = '/devis/Orthoplastie.pdf';
+
+                    const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
+                    const pdfDoc = await PDFDocument.load(existingPdfBytes);
+                    const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+                    const pages = pdfDoc.getPages();
+                    const firstPage = pages[0];
+                    const { width, height } = firstPage.getSize();
+                    const now = new Date();
+                    const formattedDate = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+                    const currentDate = formattedDate;
+                    const date = currentDate
+
+                    firstPage.drawText(patient_last_name, {
+                            x: 354,
+                            y: 709,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                    firstPage.drawText(patient_first_name, {
+                            x: 370,
+                            y: 697,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        firstPage.drawText(patient_birthday, {
+                            x: 426,
+                            y: 686,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        firstPage.drawText(patient_ssn, {
+                            x: 430,
+                            y: 674.5,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        switch(display.value){
+                            //Chèque
+                            case 1:
+                                firstPage.drawText("x", {
+                                    x: 49,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                            //Carte Bleue
+                            case 2:
+                                firstPage.drawText("x", {
+                                    x: 100,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                            //Espèces
+                            case 3:
+                                firstPage.drawText("x", {
+                                    x: 182,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                        }
+                        const pdfBytes = await pdfDoc.save();
+                        download(pdfBytes, 'devis.pdf', 'application/pdf');
+                    }
+
+                    else if( choice.value == 3 || choice.value == 4 ){
+                    switch(choice.value){
+                        case 3:
+                        url = '/devis/Onychoplastie.pdf';
+                        break
+                        case 4:
+                        url = '/devis/Orthonyxie.pdf';
+                        break
+                    }
+
+                    const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
+                    const pdfDoc = await PDFDocument.load(existingPdfBytes);
+                    const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+                    const pages = pdfDoc.getPages();
+                    const firstPage = pages[0];
+                    const { width, height } = firstPage.getSize();
+                    const now = new Date();
+                    const formattedDate = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+                    const currentDate = formattedDate;
+                    const date = currentDate
+
+                    firstPage.drawText(patient_last_name, {
+                            x: 353,
+                            y: 710,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                    firstPage.drawText(patient_first_name, {
+                            x: 369,
+                            y: 698,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        firstPage.drawText(patient_birthday, {
+                            x: 426,
+                            y: 686,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        firstPage.drawText(date, {
+                            x: 395,
+                            y: 662,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        switch(display.value){
+                            //Chèque
+                            case 1:
+                                firstPage.drawText("x", {
+                                    x: 49,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                            //Carte Bleue
+                            case 2:
+                                firstPage.drawText("x", {
+                                    x: 100,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                            //Espèces
+                            case 3:
+                                firstPage.drawText("x", {
+                                    x: 182,
+                                    y: 286,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                        }
+                        const pdfBytes = await pdfDoc.save();
+                        download(pdfBytes, 'devis.pdf', 'application/pdf');
+                    }
+                    //si c'est un devis pour semelles orthopédiques
+                    else{
+                    switch(result.value){
+                        case 1:
+                        url = "/devis/Inférieur_à_28.pdf"
+                        break
+                        case 2:
+                        url = "/devis/Entre_28_et_37.pdf"
+                        break
+                        case 3:
+                        url = "/devis/Supérieur_à_37.pdf"
+                        break
+                    }
+
+                    const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
+                    const pdfDoc = await PDFDocument.load(existingPdfBytes);
+                    const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+                    const pages = pdfDoc.getPages();
+                    const firstPage = pages[0];
+                    const { width, height } = firstPage.getSize();
+                    const now = new Date();
+                    const formattedDate = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+                    const currentDate = formattedDate;
+                    const date = currentDate
+
+                    firstPage.drawText(patient_last_name, {
+                            x: 353,
+                            y: 710,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                    firstPage.drawText(patient_first_name, {
+                            x: 369,
+                            y: 698,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        firstPage.drawText(patient_birthday, {
+                            x: 426,
+                            y: 686,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        firstPage.drawText(date, {
+                            x: 395,
+                            y: 662,
+                            size: 11,
+                            font: helveticaFont,
+                            color: rgb(0, 0, 0),
+                        });
+
+                        switch(display.value){
+                            //Chèque
+                            case 1:
+                                firstPage.drawText("x", {
+                                    x: 49,
+                                    y: 250,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                            //Carte Bleue
+                            case 2:
+                                firstPage.drawText("x", {
+                                    x: 100,
+                                    y: 250,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                            //Espèces
+                            case 3:
+                                firstPage.drawText("x", {
+                                    x: 182,
+                                    y: 250,
+                                    size: 15,
+                                    font: helveticaFont,
+                                    color: rgb(0, 0, 0),
+                                });
+                                break;
+                        }
+                        const pdfBytes = await pdfDoc.save();
+
+                        download(pdfBytes, 'devis.pdf', 'application/pdf');
+                        }
+                    }
+
+                    } catch (error) {
+                        console.error("An error occurred:", error);
+                    }
+                },
 
         getCurrentDate() {
             const now = new Date();
@@ -304,5 +544,6 @@ export default {
         this.getCurrentDate();
     },
 };
+
 
 </script>
