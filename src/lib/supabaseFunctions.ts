@@ -4,10 +4,6 @@ import { supabase } from './supabaseClient'
 export const pathologies = ref([])
 export const soins = ref([])
 
-export async function getpathologies() {
-  const { data } = await supabase.from('pathologies').select()
-}
-
 export async function insertpathologies(){
   const input = document.getElementById('inputvalue_insert') as HTMLInputElement | null;
   if (input != null) {

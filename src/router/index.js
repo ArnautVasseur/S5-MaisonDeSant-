@@ -6,6 +6,7 @@ import TraitementView from '../views/TraitementView.vue'
 import NousConnaitreView from '../views/NousConnaitreView.vue'
 import DevisView from '../views/DevisView.vue'
 import AuthView from '../views/Admin/AuthentificationView.vue'
+import DatabaseView from '../views/Admin/DatabaseView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,6 +48,11 @@ const router = createRouter({
       path: '/authentification', 
       name: 'Authentification', 
       component: AuthView
+    },
+    {
+      path: '/database', 
+      name: 'Database', 
+      component: DatabaseView
     },
   ],
 })
