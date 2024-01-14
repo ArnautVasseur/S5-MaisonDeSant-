@@ -3,22 +3,64 @@ import { supabase } from './supabaseClient'
 
 export const pathologies = ref([])
 export const soins = ref([])
+export const praticiens = ref([])
 
-export async function insertpathologies(){
-  const input = document.getElementById('inputvalue_insert') as HTMLInputElement | null;
-  if (input != null) {
+export async function insertpraticiens(){
+  const input = document.getElementById('pratiname_insert') as HTMLInputElement | null;
+  const input2 = document.getElementById('pratidiplo_insert') as HTMLInputElement | null;
+  const successMessage = document.getElementById('successMessage');
+  if (input != null && input2 != null && successMessage != null) {
     
-  const result = input.value;
+  const name = input.value;
+  const diplome = input2.value
   const { data, error } = await supabase
   .from('pathologies')
   .insert([
-      { name: result },
+      { name: name,
+        diplomes: diplome, },
   ])
       .select()
     if(error){
       console.log(error)
     }
-    console.log("Vous avez ajouté: " + result)
+    // Show success message
+    successMessage.textContent = "Vous avez bien ajouté un nouveau praticien, actualisez pour voir les changements";
+    successMessage.style.display = 'block';
+
+    // Optional: Hide the success message after a certain time (e.g., 3 seconds)
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 3000);
+  }
+  
+}
+
+export async function insertpathologies(){
+  const input = document.getElementById('pathoname_insert') as HTMLInputElement | null;
+  const input2 = document.getElementById('pathodesc_insert') as HTMLInputElement | null;
+  const successMessage = document.getElementById('successMessage');
+  if (input != null && input2 != null && successMessage != null) {
+    
+  const name = input.value;
+  const desc = input2.value
+  const { data, error } = await supabase
+  .from('pathologies')
+  .insert([
+      { name: name,
+        desc: desc, },
+  ])
+      .select()
+    if(error){
+      console.log(error)
+    }
+    // Show success message
+    successMessage.textContent = "Vous avez bien ajouté une nouvelle pathologie, actualisez pour voir les changements";
+    successMessage.style.display = 'block';
+
+    // Optional: Hide the success message after a certain time (e.g., 3 seconds)
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 3000);
   }
   
 }
