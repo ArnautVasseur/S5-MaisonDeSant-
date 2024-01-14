@@ -15,7 +15,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     <span class="text-black">et son emplacement</span> géographique
   </h2>
 
-  <div class="grid grid-cols-2 gap-10">
+  <div class="sm:grid sm:grid-cols-2 gap-10">
     <div>
       <h3
         class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
@@ -23,12 +23,16 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
         <span class="text-black">Notre</span> équipe
       </h3>
 
-      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-10">
+      <p
+        class="font-quicksand sm:text-desktop text-desktop_small sm:ml-10 ml-5 mt-10"
+      >
         Notre équipe est composée de professionnels à votre écoute, spécialisés
         dans le domaine de la podologie.
       </p>
 
-      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-5">
+      <p
+        class="font-quicksand sm:text-desktop text-desktop_small sm:ml-10 ml-5 mt-5"
+      >
         Forts de leur expertise et de leur dévouement, ils sont déterminés à
         traiter vos problèmes et améliorer votre bien-être.
         <span class="font-semibold"
@@ -38,7 +42,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
   </div>
 
-  <div class="sm:flex grid gap-10 ml-10 mr-10 mt-10">
+  <div class="sm:flex grid gap-10 sm:ml-10 ml-2 mr-10 mt-10">
     <Comp_CardButton
       nom="Esther JURY VERMOT DES ROCHES"
       diplomes="- Diplôme de la FIFA en médecine du football - Diplôme d'État de pédicure-podologue - Master en biomécanique humaine"

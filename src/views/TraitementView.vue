@@ -22,7 +22,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </h3>
 
     <ul
-      class="list-disc font-quicksand mt-5 sm:text-desktop text-desktop_small grid place-content-center"
+      class="list-disc font-quicksand mt-5 ml-5 sm:text-desktop text-desktop_small grid place-content-center"
     >
       <li class="mt-10">
         Onychoplastie, Orthonxie et Orthoplastie ont pour tarifs → 40€
@@ -46,7 +46,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </p>
   </div>
 
-  <div class="flex mt-20 gap-12 items-center ml-28">
+  <div class="sm:flex grid mt-20 gap-12 items-center sm:ml-28 ml-2">
     <img
       class="sm:h-[273px] h-[205px]"
       src="/public/images/siege.png"
@@ -63,7 +63,9 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     />
   </div>
 
-  <div class="h-[1822px] bg-gradient-to-r from-[#DDF4EA] to-[#FBF8F7] mt-24">
+  <div
+    class="sm:h-[1822px] h-[4500px] bg-gradient-to-r from-[#DDF4EA] to-[#FBF8F7] mt-24"
+  >
     <h3
       class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-black ml-24 pt-28"
     >
@@ -140,7 +142,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </div>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[2800px] top-[3800px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[2800px] top-[5800px] absolute w-full" />
 </template>
 
 <style></style>
