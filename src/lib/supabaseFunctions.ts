@@ -95,7 +95,6 @@ export async function deletepathologies() {
   }
 }
 
-
 //Soins
 export async function insertsoins() {
   const name = document.getElementById('soinsname_insert') as HTMLInputElement | null;
@@ -138,7 +137,7 @@ export async function insertsoins() {
       console.error('No image selected');
     }
     // Show success message
-    successMessage.textContent = "Vous avez bien ajouté un souveau soin, actualisez pour voir les changements";
+    successMessage.textContent = "Vous avez bien ajouté un nouveau soin, actualisez pour voir les changements";
     successMessage.style.display = 'block';
     // Optional: Hide the success message after a certain time (e.g., 3 seconds)
     setTimeout(() => {
@@ -191,7 +190,7 @@ export async function updatesoins() {
         console.error(insertError);
       }
     }
-    successMessage.textContent = "Vous avez bien ajouté un nouveau soin, actualisez pour voir les changements";
+    successMessage.textContent = "Vous avez bien modifié ce soin, actualisez pour voir les changements";
     successMessage.style.display = 'block';
     setTimeout(() => {
       successMessage.style.display = 'none';
@@ -260,34 +259,166 @@ export async function deletesoins() {
     }
 }
 
-
 //Praticiens
-export async function insertpraticiens(){
-  const input = document.getElementById('pratiname_insert') as HTMLInputElement | null;
-  const input2 = document.getElementById('pratidiplo_insert') as HTMLInputElement | null;
+export async function insertpraticiens() {
+  const name = document.getElementById('pratiname_insert') as HTMLInputElement | null;
+  const desc = document.getElementById('pratidiplo_insert') as HTMLInputElement | null;
+  const imageInput = document.getElementById('pratiimage_insert') as HTMLInputElement | null;
   const successMessage = document.getElementById('successMessage');
-  if (input != null && input2 != null && successMessage != null) {
-    
-  const name = input.value;
-  const diplome = input2.value
-  const { data, error } = await supabase
-  .from('pathologies')
-  .insert([
-      { name: name,
-        diplomes: diplome, },
-  ])
-      .select()
-    if(error){
-      console.log(error)
+
+  if (name != null && desc && imageInput && successMessage != null) {
+    const result_name = name.value;
+    const result_desc = desc.value;
+    // Get the selected image file
+    const imageFile = imageInput.files?.[0];
+    if (imageFile) {
+      // Upload the image to Supabase Storage
+      const { data: storageData, error: storageError } = await supabase.storage
+        .from('praticiens')
+        .upload(`${imageFile.name}`, imageFile);
+      if (storageError) {
+        console.error(storageError);
+        return;
+      }
+      // Construct the full image URL
+      const baseUrl = 'https://qfgcsuwyabuvsliecfib.supabase.co';
+      const imageUrl = `${baseUrl}/storage/v1/object/public/praticiens/${storageData?.path}`;
+      // Add image metadata to the 'praticiens' table
+      const { data: insertData, error: insertError } = await supabase
+        .from('praticiens')
+        .insert([
+          {
+            name: result_name,
+            desc: result_desc,
+            image_url: imageUrl,
+          },
+        ])
+        .select();
+      if (insertError) {
+        console.error(insertError);
+      }
+    } else {
+      console.error('No image selected');
     }
     // Show success message
     successMessage.textContent = "Vous avez bien ajouté un nouveau praticien, actualisez pour voir les changements";
     successMessage.style.display = 'block';
-
     // Optional: Hide the success message after a certain time (e.g., 3 seconds)
     setTimeout(() => {
         successMessage.style.display = 'none';
     }, 3000);
   }
-  
+}
+
+export async function updatepraticiens() {
+  const name = document.getElementById('pratiname_update') as HTMLInputElement | null;
+  const desc = document.getElementById('pratidiplo_update') as HTMLInputElement | null;
+  const imageInput = document.getElementById('pratiimage_update') as HTMLInputElement | null;
+  const filter_update = document.getElementById('filter_update') as HTMLInputElement | null;
+  const successMessage = document.getElementById('successMessage');
+  if (name != null && desc && imageInput && filter_update && successMessage != null) {
+    const result_name = name.value;
+    const result_desc = desc.value;
+    const filter = filter_update.value;
+    const imageFile = imageInput.files?.[0];
+    let imageUrl = '';
+    if (imageFile) {
+      const { data: storageData, error: storageError } = await supabase.storage
+        .from('praticiens')
+        .upload(`${imageFile.name}`, imageFile);
+      if (storageError) {
+        console.error(storageError);
+        return;
+      }
+      const baseUrl = 'https://qfgcsuwyabuvsliecfib.supabase.co';
+      imageUrl = `${baseUrl}/storage/v1/object/public/praticiens/${storageData?.path}`;
+    }
+    const updateFields: { [key: string]: any } = {};
+    if (result_name.trim() !== '') {
+      updateFields.name = result_name;
+    }
+    if (result_desc.trim() !== '') {
+      updateFields.desc = result_desc;
+    }
+    if (imageUrl !== '') {
+      updateFields.image_url = imageUrl;
+    }
+    if (Object.keys(updateFields).length > 0) {
+      const { data: insertData, error: insertError } = await supabase
+        .from('praticiens')
+        .update([updateFields])
+        .eq('name', filter)
+        .select();
+
+      if (insertError) {
+        console.error(insertError);
+      }
+    }
+    successMessage.textContent = "Vous avez bien modifié ce praticien, actualisez pour voir les changements";
+    successMessage.style.display = 'block';
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 3000);
+  }
+}
+
+export async function deletepraticiens() {
+    const filter_delete = document.getElementById('filter_delete') as HTMLInputElement | null;
+    const successMessage = document.getElementById('successMessage');
+
+    if (filter_delete != null && successMessage != null) {
+        const filter = filter_delete.value;
+
+        // Display a confirmation dialog
+        const isConfirmed = window.confirm("Vous êtes sûr de vouloir supprimer ce praticien?");
+
+        if (!isConfirmed) {
+            return;  // User canceled the operation
+        }
+
+        // Fetch the praticiens data first to get the image URL
+        const { data: praticienData, error: praticienError } = await supabase
+            .from('praticiens')
+            .select('name, image_url') // Add any other fields you need
+            .eq('name', filter);
+
+        if (praticienError) {
+            console.error(praticienError);
+            return;
+        }
+
+        const { data, error } = await supabase
+            .from('praticiens')
+            .delete()
+            .eq('name', filter);
+
+        if (error) {
+            console.error(error);
+        } else {
+            // Delete the associated image in storage
+            const imageUrl = praticienData?.[0]?.image_url;
+            if (imageUrl) {
+                // Extract filename from the URL
+                const filename = imageUrl.split('/').pop();
+                
+                const { error: storageError } = await supabase.storage
+                    .from('praticiens')
+                    .remove([filename]);  // Use the extracted filename
+
+                if (storageError) {
+                    console.error(storageError);
+                    return;
+                }
+            }
+
+            // Show success message
+            successMessage.textContent = "Vous avez supprimé: " + filter +", actualisez pour voir les changements";
+            successMessage.style.display = 'block';
+
+            // Optional: Hide the success message after a certain time (e.g., 3 seconds)
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+    }
 }

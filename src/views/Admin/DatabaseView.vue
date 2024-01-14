@@ -3,7 +3,7 @@ import Comp_Header from "../../composants/Comp_Header.vue";
 import Comp_Footer from "../../composants/Comp_Footer.vue";
 import Comp_Button from "../../composants/Buttons/Comp_Button.vue";
 import { supabase } from '../../lib/supabaseClient'
-import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins } from '../../lib/supabaseFunctions';
+import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins, insertpraticiens, updatepraticiens, deletepraticiens } from '../../lib/supabaseFunctions';
 import { ref, onMounted } from 'vue'
 
 async function getsoins() {
@@ -153,16 +153,41 @@ const action = ref()
         </div>
         <!-- form delete soins -->
 
-        <!-- form add praticien 
+        <!-- form add praticiens -->
         <div v-if="result == 'Praticiens' && action == 'Ajouter'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratiname_insert" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratidiplo_insert" placeholder="Diplômes *"></textarea>
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="insertpathologies()">
+            <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="pratiimage_insert" type="file">
+            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="insertpraticiens()">
                 Ajouter Praticien
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
         </div>
-        -->
+        <!-- form add praticiens -->
+
+        <!-- form update praticiens -->
+        <div v-if="result == 'Praticiens' && action == 'Modifier'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
+            <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratiname_update" placeholder="Nom *">
+            <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratidiplo_update" placeholder="Diplômes *"></textarea>
+            <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="pratiimage_update" type="file">
+            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="updatepraticiens()">
+                Modifier Praticien
+            </button>
+            <div id="successMessage" style="display: none; color: green;"></div>
+        </div>
+        <!-- form update praticiens -->
+
+        <!-- form delete praticiens -->
+        <div v-if="result == 'Praticiens' && action == 'Supprimer'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
+            <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratiname_update" placeholder="Nom *">
+            <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratidiplo_update" placeholder="Diplômes *"></textarea>
+            <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="pratiimage_update" type="file">
+            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="deletepraticiens()">
+                Supprimer Praticien
+            </button>
+            <div id="successMessage" style="display: none; color: red;"></div>
+        </div>
+        <!-- form delete praticiens -->
     </div>
 
     <select class="rounded-lg w-80 mt-10 bg-medium_primary_green ml-10 font-quicksand text-desktop h-10 " v-model="action"> 
