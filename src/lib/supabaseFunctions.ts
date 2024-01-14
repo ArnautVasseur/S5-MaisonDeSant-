@@ -5,42 +5,12 @@ export const pathologies = ref([])
 export const soins = ref([])
 export const praticiens = ref([])
 
-export async function insertpraticiens(){
-  const input = document.getElementById('pratiname_insert') as HTMLInputElement | null;
-  const input2 = document.getElementById('pratidiplo_insert') as HTMLInputElement | null;
-  const successMessage = document.getElementById('successMessage');
-  if (input != null && input2 != null && successMessage != null) {
-    
-  const name = input.value;
-  const diplome = input2.value
-  const { data, error } = await supabase
-  .from('pathologies')
-  .insert([
-      { name: name,
-        diplomes: diplome, },
-  ])
-      .select()
-    if(error){
-      console.log(error)
-    }
-    // Show success message
-    successMessage.textContent = "Vous avez bien ajouté un nouveau praticien, actualisez pour voir les changements";
-    successMessage.style.display = 'block';
-
-    // Optional: Hide the success message after a certain time (e.g., 3 seconds)
-    setTimeout(() => {
-        successMessage.style.display = 'none';
-    }, 3000);
-  }
-  
-}
-
+//Pathologies
 export async function insertpathologies(){
   const input = document.getElementById('pathoname_insert') as HTMLInputElement | null;
   const input2 = document.getElementById('pathodesc_insert') as HTMLInputElement | null;
   const successMessage = document.getElementById('successMessage');
   if (input != null && input2 != null && successMessage != null) {
-    
   const name = input.value;
   const desc = input2.value
   const { data, error } = await supabase
@@ -62,26 +32,40 @@ export async function insertpathologies(){
         successMessage.style.display = 'none';
     }, 3000);
   }
-  
 }
 
 export async function updatepathologies(){
-  const input = document.getElementById('inputvalue_update') as HTMLInputElement | null;
+  const input = document.getElementById('pathoname_update') as HTMLInputElement | null;
+  const input2 = document.getElementById('pathodesc_update') as HTMLInputElement | null;
   const filter_update = document.getElementById('filter_update') as HTMLInputElement | null;
-  if(input != null){
-    if(filter_update != null){
-      const result = input.value
-      const filter = filter_update.value
-      const { data, error } = await supabase
-      .from('pathologies')
-      .update({ name: result })
-      .eq('name', filter)
-        .select()
-      if(error){
-        console.log(error)
-      }
-      console.log("Vous avez modifié: "+ filter + "par: " + result)
+  const successMessage = document.getElementById('successMessage');
+  if(input != null && filter_update != null && input2 != null && successMessage != null){
+    const name = input.value
+    const desc = input2.value
+    const filter = filter_update.value
+    // Create an object to hold the fields to update
+    const updateFields: { [key: string]: any } = {};
+    // Include name in updateFields only if input is not empty
+    if (name.trim() !== '') {
+      updateFields.name = name;
     }
+    // Include desc in updateFields only if input2 is not empty
+    if (desc.trim() !== '') {
+      updateFields.desc = desc;
+    }
+    const { data, error } = await supabase
+      .from('pathologies')
+      .update(updateFields)
+      .eq('name', filter)
+      .select();
+    if(error){
+      console.log(error)
+    }
+    successMessage.textContent = "Vous avez bien modifié cette pathologie, actualisez pour voir les changements";
+    successMessage.style.display = 'block';
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 3000);
   }
 }
 
@@ -100,6 +84,7 @@ export async function deletepathologies(){
   }
 }
 
+//Soins
 export async function insertsoins() {
   const name = document.getElementById('soinsname_insert') as HTMLInputElement | null;
   const desc = document.getElementById('soinsdesc_insert') as HTMLInputElement | null;
@@ -109,25 +94,20 @@ export async function insertsoins() {
   if (name != null && desc && imageInput && successMessage != null) {
     const result_name = name.value;
     const result_desc = desc.value;
-
     // Get the selected image file
     const imageFile = imageInput.files?.[0];
-
     if (imageFile) {
       // Upload the image to Supabase Storage
       const { data: storageData, error: storageError } = await supabase.storage
         .from('soins')
         .upload(`${imageFile.name}`, imageFile);
-
       if (storageError) {
         console.error(storageError);
         return;
       }
-
       // Construct the full image URL
       const baseUrl = 'https://qfgcsuwyabuvsliecfib.supabase.co';
       const imageUrl = `${baseUrl}/storage/v1/object/public/soins/${storageData?.path}`;
-
       // Add image metadata to the 'soins' table
       const { data: insertData, error: insertError } = await supabase
         .from('soins')
@@ -139,7 +119,6 @@ export async function insertsoins() {
           },
         ])
         .select();
-
       if (insertError) {
         console.error(insertError);
       }
@@ -149,15 +128,64 @@ export async function insertsoins() {
     // Show success message
     successMessage.textContent = "Vous avez bien ajouté un souveau soin, actualisez pour voir les changements";
     successMessage.style.display = 'block';
-
     // Optional: Hide the success message after a certain time (e.g., 3 seconds)
     setTimeout(() => {
         successMessage.style.display = 'none';
     }, 3000);
-    
   }
 }
 
+export async function updatesoins() {
+  const name = document.getElementById('soinsname_update') as HTMLInputElement | null;
+  const desc = document.getElementById('soinsdesc_update') as HTMLInputElement | null;
+  const imageInput = document.getElementById('soinsimage_update') as HTMLInputElement | null;
+  const filter_update = document.getElementById('filter_update') as HTMLInputElement | null;
+  const successMessage = document.getElementById('successMessage');
+  if (name != null && desc && imageInput && filter_update && successMessage != null) {
+    const result_name = name.value;
+    const result_desc = desc.value;
+    const filter = filter_update.value;
+    const imageFile = imageInput.files?.[0];
+    let imageUrl = '';
+    if (imageFile) {
+      const { data: storageData, error: storageError } = await supabase.storage
+        .from('soins')
+        .upload(`${imageFile.name}`, imageFile);
+      if (storageError) {
+        console.error(storageError);
+        return;
+      }
+      const baseUrl = 'https://qfgcsuwyabuvsliecfib.supabase.co';
+      imageUrl = `${baseUrl}/storage/v1/object/public/soins/${storageData?.path}`;
+    }
+    const updateFields: { [key: string]: any } = {};
+    if (result_name.trim() !== '') {
+      updateFields.name = result_name;
+    }
+    if (result_desc.trim() !== '') {
+      updateFields.desc = result_desc;
+    }
+    if (imageUrl !== '') {
+      updateFields.image_url = imageUrl;
+    }
+    if (Object.keys(updateFields).length > 0) {
+      const { data: insertData, error: insertError } = await supabase
+        .from('soins')
+        .update([updateFields])
+        .eq('name', filter)
+        .select();
+
+      if (insertError) {
+        console.error(insertError);
+      }
+    }
+    successMessage.textContent = "Vous avez bien ajouté un nouveau soin, actualisez pour voir les changements";
+    successMessage.style.display = 'block';
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 3000);
+  }
+}
 
 export async function deletesoins() {
     const filter_delete = document.getElementById('soins_delete') as HTMLInputElement | null;
@@ -211,4 +239,35 @@ export async function deletesoins() {
             }, 3000);
         }
     }
+}
+
+//Praticiens
+export async function insertpraticiens(){
+  const input = document.getElementById('pratiname_insert') as HTMLInputElement | null;
+  const input2 = document.getElementById('pratidiplo_insert') as HTMLInputElement | null;
+  const successMessage = document.getElementById('successMessage');
+  if (input != null && input2 != null && successMessage != null) {
+    
+  const name = input.value;
+  const diplome = input2.value
+  const { data, error } = await supabase
+  .from('pathologies')
+  .insert([
+      { name: name,
+        diplomes: diplome, },
+  ])
+      .select()
+    if(error){
+      console.log(error)
+    }
+    // Show success message
+    successMessage.textContent = "Vous avez bien ajouté un nouveau praticien, actualisez pour voir les changements";
+    successMessage.style.display = 'block';
+
+    // Optional: Hide the success message after a certain time (e.g., 3 seconds)
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 3000);
+  }
+  
 }

@@ -3,7 +3,7 @@ import Comp_Header from "../../composants/Comp_Header.vue";
 import Comp_Footer from "../../composants/Comp_Footer.vue";
 import Comp_Button from "../../composants/Buttons/Comp_Button.vue";
 import { supabase } from '../../lib/supabaseClient'
-import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies } from '../../lib/supabaseFunctions';
+import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins } from '../../lib/supabaseFunctions';
 import { ref, onMounted } from 'vue'
 
 async function getsoins() {
@@ -75,7 +75,25 @@ const action = ref()
         </div>
         <!-- form add soins -->
 
-        <!-- form add pathologie -->
+        <!-- form update soins -->
+        <div v-if="result == 'Soins' && action == 'Modifier'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
+            <select class="rounded-lg bg-medium_primary_green font-quicksand text-desktop h-10 " id="filter_update">
+                <option disabled value="" class="text-center">Veuillez choisir un soin à modifier</option>
+                <option class="text-center bg-clear-primary-green" v-for="soin in soins" :key="soin.id">
+                    {{ soin.name }}
+                </option>
+            </select>
+            <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="soinsname_update" placeholder="Nom *">
+            <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="soinsdesc_update" placeholder="Description *"></textarea>
+            <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="soinsimage_update" type="file">
+            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="updatesoins()">
+                Mettre à jour ce soin
+            </button>
+            <div id="successMessage" style="display: none; color: green;"></div>
+        </div>
+        <!-- form update soins -->
+
+        <!-- form add pathologie insert -->
         <div v-if="result == 'Pathologies' && action == 'Ajouter'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pathoname_insert" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pathodesc_insert" placeholder="Description *"></textarea>
@@ -84,9 +102,27 @@ const action = ref()
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
         </div>
-        <!-- form add pathologie -->
+        <!-- form add pathologie insert -->
+        
+        <!-- form add pathologie update -->
+        <div v-if="result == 'Pathologies' && action == 'Modifier'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
+            <select class="rounded-lg bg-medium_primary_green font-quicksand text-desktop h-10 " id="filter_update">
+                <option disabled value="" class="text-center">Veuillez choisir une pathologie à modifier</option>
+                <option class="text-center bg-clear-primary-green" v-for="patho in pathologies" :key="patho.id">
+                    {{ patho.name }}
+                </option>
+            </select>
+            <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pathoname_update" placeholder="Nouveau Nom *">
+            <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pathodesc_update" placeholder="Nouvelle description *"></textarea>
 
-        <!-- form add praticien -->
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="updatepathologies">
+                Mettre à jour cette pathologie
+            </button>
+            <div id="successMessage" style="display: none; color: green;"></div>
+        </div>
+        <!-- form add pathologie update -->
+
+        <!-- form add praticien 
         <div v-if="result == 'Praticiens' && action == 'Ajouter'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratiname_insert" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratidiplo_insert" placeholder="Diplômes *"></textarea>
@@ -95,7 +131,7 @@ const action = ref()
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
         </div>
-        <!-- form add praticien -->
+        -->
     </div>
 
     <select class="rounded-lg w-80 mt-10 bg-medium_primary_green ml-10 font-quicksand text-desktop h-10 " v-model="action"> 
