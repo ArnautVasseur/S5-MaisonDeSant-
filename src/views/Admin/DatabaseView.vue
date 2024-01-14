@@ -93,7 +93,23 @@ const action = ref()
         </div>
         <!-- form update soins -->
 
-        <!-- form add pathologie insert -->
+        <!-- form delete soins -->
+        <div v-if="result == 'Soins' && action == 'Supprimer'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
+            <select class="rounded-lg bg-medium_primary_green font-quicksand text-desktop h-10 " id="filter_delete">
+                <option disabled value="" class="text-center">Veuillez choisir un soin à supprimer</option>
+                <option class="text-center bg-clear-primary-green" v-for="soin in soins" :key="soin.id">
+                    {{ soin.name }}
+                </option>
+            </select>
+            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="deletesoins()">
+                Supprimer ce soin
+            </button>
+            <div id="successMessage" style="display: none; color: red;"></div>
+        </div>
+        <!-- form delete soins -->
+
+
+        <!-- form add pathologie-->
         <div v-if="result == 'Pathologies' && action == 'Ajouter'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pathoname_insert" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pathodesc_insert" placeholder="Description *"></textarea>
@@ -102,9 +118,9 @@ const action = ref()
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
         </div>
-        <!-- form add pathologie insert -->
+        <!-- form add pathologie-->
         
-        <!-- form add pathologie update -->
+        <!-- form update pathologie -->
         <div v-if="result == 'Pathologies' && action == 'Modifier'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
             <select class="rounded-lg bg-medium_primary_green font-quicksand text-desktop h-10 " id="filter_update">
                 <option disabled value="" class="text-center">Veuillez choisir une pathologie à modifier</option>
@@ -120,7 +136,22 @@ const action = ref()
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
         </div>
-        <!-- form add pathologie update -->
+        <!-- form update pathologie -->
+
+        <!-- form delete soins -->
+        <div v-if="result == 'Pathologies' && action == 'Supprimer'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
+            <select class="rounded-lg bg-medium_primary_green font-quicksand text-desktop h-10 " id="filter_delete">
+                <option disabled value="" class="text-center">Veuillez choisir un soin à supprimer</option>
+                <option class="text-center bg-clear-primary-green" v-for="patho in pathologies" :key="patho.id">
+                    {{ patho.name }}
+                </option>
+            </select>
+            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="deletepathologies()">
+                Supprimer cette pathologie
+            </button>
+            <div id="successMessage" style="display: none; color: red;"></div>
+        </div>
+        <!-- form delete soins -->
 
         <!-- form add praticien 
         <div v-if="result == 'Praticiens' && action == 'Ajouter'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">

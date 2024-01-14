@@ -69,20 +69,32 @@ export async function updatepathologies(){
   }
 }
 
-export async function deletepathologies(){
+export async function deletepathologies() {
   const filter_delete = document.getElementById('filter_delete') as HTMLInputElement | null;
-  if(filter_delete != null){
-    const filter = filter_delete.value
-    const { data, error } = await supabase
-    .from('pathologies')
-    .delete()
-      .eq('name', filter)
-    if(error){
-      console.log(error)
+
+  if (filter_delete != null) {
+    const filter = filter_delete.value;
+
+    // Display a confirmation dialog
+    const isConfirmed = window.confirm("Vous êtes sûr de vouloir supprimer cette pathologie?");
+
+    if (!isConfirmed) {
+      return;  // User canceled the operation
     }
-    console.log("Vous avez supprimé: "+ filter)
+
+    const { data, error } = await supabase
+      .from('pathologies')
+      .delete()
+      .eq('name', filter);
+
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Vous avez supprimé: " + filter);
+    }
   }
 }
+
 
 //Soins
 export async function insertsoins() {
@@ -188,11 +200,18 @@ export async function updatesoins() {
 }
 
 export async function deletesoins() {
-    const filter_delete = document.getElementById('soins_delete') as HTMLInputElement | null;
+    const filter_delete = document.getElementById('filter_delete') as HTMLInputElement | null;
     const successMessage = document.getElementById('successMessage');
 
     if (filter_delete != null && successMessage != null) {
         const filter = filter_delete.value;
+
+        // Display a confirmation dialog
+        const isConfirmed = window.confirm("Vous êtes sûr de vouloir supprimer ce soin?");
+
+        if (!isConfirmed) {
+            return;  // User canceled the operation
+        }
 
         // Fetch the soin data first to get the image URL
         const { data: soinData, error: soinError } = await supabase
@@ -240,6 +259,7 @@ export async function deletesoins() {
         }
     }
 }
+
 
 //Praticiens
 export async function insertpraticiens(){
