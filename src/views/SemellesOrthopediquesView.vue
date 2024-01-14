@@ -22,7 +22,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     </h3>
 
     <ul
-      class="list-disc font-quicksand mt-5 sm:text-desktop text-desktop_small grid place-content-center"
+      class="list-disc ml-5 font-quicksand mt-5 sm:text-desktop text-desktop_small grid sm:place-content-center"
     >
       <li class="mt-10">
         La consultation de podologie (bilan pour semelles orthopédiques) → 40€
@@ -70,19 +70,19 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
       </ul>
     </div>
 
-    <div class="sm:flex grid ml-24 mt-10 gap-40">
+    <div class="sm:flex grid ml-24 mt-10 gap-1 sm:gap-40">
       <img
-        class="h-[302px]"
+        class="sm:h-[302px] h-4/6"
         src="/public/images/tapis.png"
         alt="Tapis pour prendre les appuis des pieds"
       />
       <img
-        class="h-[302px]"
+        class="sm:h-[302px] h-4/6"
         src="/public/images/machine-semelles.png"
         alt="Machine pour faire les semelles orthopédiques"
       />
       <img
-        class="h-[302px]"
+        class="sm:h-[302px] h-4/6"
         src="/public/images/entretien-semelle-orthopedique.png"
         alt="Main tenant des semelles orthopédiques"
       />
@@ -134,7 +134,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
   </div>
 
   <h3
-    class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-28 text-center"
+    class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 sm:mt-28 mt-[700px] text-center"
   >
     <span class="text-black">Les différentes</span> pathologies
   </h3>
@@ -191,7 +191,7 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
     />
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[2750px] top-[4200px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[2750px] top-[4600px] absolute w-full" />
 </template>
 
 <style></style>
