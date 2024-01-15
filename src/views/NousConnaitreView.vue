@@ -65,7 +65,7 @@ toggleScrolling();
     <Comp_CardButton
       nom="Anaëlle SELISE"
       diplomes="- Licence Biologie-santé - Diplôme d'État de pédicure-podologue"
-      imageSrc="/public/images/AnaëlleSELISE.jpg"
+      imageSrc="/public/images/AnaelleSELISE.jpg"
       imageAlt="Image de Anaëlle SELISE"
       url="https://www.doctolib.fr/pedicure-podologue/montbeliard/anaelle-selise"
     />
@@ -117,10 +117,10 @@ toggleScrolling();
       </ul>
     </div>
 
-    <div class="sm:mt-36 sm:-ml-52 mt-10"><Comp_Map /></div>
+    <div class="sm:mt-16 sm:-ml-52 mt-10"><Comp_Map /></div>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[1160px] top-[2060px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[1100px] top-[2060px] absolute w-full" />
 </template>
 
 <style></style>
