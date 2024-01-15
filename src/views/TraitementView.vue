@@ -112,13 +112,13 @@ toggleScrolling();
       <Comp_Card
         name="Ongle incarné"
         description="Le bord de l'ongle pénètre dans la peau, nécessitant parfois une intervention, comme l'ablation partielle de l'ongle, pour soulager la douleur et favoriser la guérison."
-        imageSrc="/public/images/ongle-incarné.png"
+        imageSrc="/public/images/ongleincarne.png"
         imageAlt="Un ongle avec un ongle incarné"
       />
       <Comp_Card
         name="Hématome"
         description="L'hématome sous l'ongle, causé par un traumatisme, peut nécessiter un drainage pour soulager la pression du sang accumulé."
-        imageSrc="/public/images/hématome.png"
+        imageSrc="/public/images/hematome.png"
         imageAlt="Un ongle avec un hématome"
       />
       <Comp_Card
@@ -148,7 +148,7 @@ toggleScrolling();
       <Comp_Card
         name="Pied d’athlète"
         description="Infection fongique de la peau, en particulier entre les orteils, nécessitant un traitement antifongique pour éliminer l'infection et soulager."
-        imageSrc="/public/images/pied-d-athlète.png"
+        imageSrc="/public/images/pied-d-athlete.png"
         imageAlt="Un pied avec une indection dit pied d'athlète"
       />
     </div>

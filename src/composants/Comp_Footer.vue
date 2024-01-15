@@ -65,25 +65,6 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
           />
           Gestion administrateur
         </li></RouterLink>
-        
-        <li class="flex items-center gap-2">
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/icons/accessibility-icon.svg"
-            alt="Icone d'un bonhomme"
-          />
-          Accessibilité
-        </li>
-        <li class="flex items-center gap-2">
-          <a href=""></a>
-          <img
-            class="w-5"
-            src="/icons/translate-icon.svg"
-            alt="Icone d'un pictogramme pour la traduction"
-          />
-          Langues
-        </li>
       </ul>
     </nav>
   </div>
