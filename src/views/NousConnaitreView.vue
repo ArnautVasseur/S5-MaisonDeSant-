@@ -6,13 +6,13 @@ import Comp_Footer from "../composants/Comp_Footer.vue";
 
 var isScrollEnabled = true;
 function toggleScrolling() {
-    if (isScrollEnabled) {
-        window.onscroll = function () {
-            window.scrollTo(x, y);
-        };
-    } else {
-        window.onscroll = null;
-    }
+  if (isScrollEnabled) {
+    window.onscroll = function () {
+      window.scrollTo(x, y);
+    };
+  } else {
+    window.onscroll = null;
+  }
 }
 toggleScrolling();
 </script>
@@ -120,7 +120,7 @@ toggleScrolling();
     <div class="sm:mt-16 sm:-ml-52 mt-10"><Comp_Map /></div>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[1100px] top-[2060px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[1100px] top-[2400px] absolute w-full" />
 </template>
 
 <style></style>
