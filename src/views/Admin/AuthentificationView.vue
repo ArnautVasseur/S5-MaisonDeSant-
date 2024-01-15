@@ -2,6 +2,9 @@
 import Circle from "../../composants/Comp_Circle.vue";
 import Comp_Header from "../../composants/Comp_Header.vue";
 import Comp_FormAuth from "../../composants/Comp_FormAuth.vue";
+import { ref, computed } from 'vue';
+import { supabase } from '../../lib/supabaseClient';
+
 
 var x=window.scrollX;
 var y=window.scrollY;

@@ -5,6 +5,19 @@ import Comp_Button from "../../composants/Buttons/Comp_Button.vue";
 import { supabase } from '../../lib/supabaseClient'
 import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins, insertpraticiens, updatepraticiens, deletepraticiens } from '../../lib/supabaseFunctions';
 import { ref, onMounted } from 'vue'
+import { RouterLink } from "vue-router";
+
+var isScrollEnabled = true;
+function toggleScrolling() {
+    if (isScrollEnabled) {
+        window.onscroll = function () {
+            window.scrollTo(x, y);
+        };
+    } else {
+        window.onscroll = null;
+    }
+}
+toggleScrolling();
 
 async function getsoins() {
   const { data } = await supabase.from('soins').select()
@@ -35,10 +48,13 @@ const action = ref()
 <template>
     <Comp_Header />
 
-    <h1 class="text-primary_blue text-desktop_h1 font-raleway font-semibold mt-10 ml-10">
-        Votre espace d’
-        <span class="text-dark_primary_green">administration</span>
-    </h1>
+    <div class="flex items-center gap-24">
+        <h1 class="text-primary_blue text-desktop_h1 font-raleway font-semibold mt-10 ml-10">
+            Votre espace d’
+            <span class="text-dark_primary_green">administration</span>
+        </h1>
+        <h2 class="text-primary_blue text-desktop_h2 font-raleway font-semibold mt-10 ml-10">Oubliez pas de vous déconnectez depuis le <RouterLink to="/authentification" class="text-dark_primary_green underline">formulaire !</RouterLink></h2>
+    </div>
 
     <h2 class="text-primary_blue text-desktop_h2 font-raleway font-semibold mt-10 ml-10">
         <span class="text-dark_primary_green">Ajoutez</span>

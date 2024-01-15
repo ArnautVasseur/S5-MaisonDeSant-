@@ -1,16 +1,16 @@
 <script setup>
-import { ref } from "vue";
-import { supabase } from "../lib/supabaseClient"
+import { ref, onMounted } from "vue";
+import { supabase } from "../lib/supabaseClient";
 
 let email = ref("");
 let password = ref("");
 let errorMessage = ref("");
 let successMessage = ref("");
+let isAuthenticated = ref(false);
 
 async function login() {
   errorMessage.value = ""; // Clear any existing error message
   successMessage.value = ""; // Clear any existing success message
-
   const { data, error } = await supabase.auth.signInWithPassword({
     email: email.value,
     password: password.value,
@@ -18,19 +18,30 @@ async function login() {
 
   if (error) {
     // Handle authentication error
-    if (error.message.includes('Veuillez vérifier votre indentifiant ou mot de passe')) {
+    if (error.message.includes('Veuillez vérifier votre identifiant ou mot de passe')) {
       // Display an error message to the user
-      errorMessage.value = 'Veuillez vérifier votre indentifiant ou mot de passe';
+      errorMessage.value = 'Veuillez vérifier votre identifiant ou mot de passe';
     } else {
       // Handle other authentication errors
       errorMessage.value = 'Une erreur est survenue';
     }
     console.error(error);
   } else {
+    isAuthenticated.value = true;
     successMessage.value = 'Vous êtes bien connecté !';
     console.log(data);
+
+    // Reset email and password after successful login
+    email.value = "";
+    password.value = "";
   }
 }
+
+
+onMounted(async () => {
+  const localUser = await supabase.auth.getSession();
+  isAuthenticated.value = localUser?.data?.session !== null;
+});
 
 async function seeUser() {
   const localUser = await supabase.auth.getSession();
@@ -39,11 +50,12 @@ async function seeUser() {
 
 async function logout() {
   const { error } = await supabase.auth.signOut();
-
   if (error) {
     console.log(error);
   } else {
-    successMessage.value = 'Vous êtes déconnecté avec succès !';
+    isAuthenticated.value = false;
+    console.log(isAuthenticated.value)
+    successMessage.value = 'Vous vous êtes déconnecté avec succès !';
     console.log("Sign out success");
   }
 }
@@ -77,13 +89,17 @@ async function logout() {
     <div class="flex flex-col gap-3 items-center">
       <button type="submit" @click="login" class="bg-medium_primary_green text-desktop py-3 px-10 font-quicksand rounded-xl text-black font-normal"> Se connecter </button>
       <button type="submit" @click="logout" class="bg-medium_primary_green text-desktop py-3 px-10 font-quicksand rounded-xl text-black font-normal"> Déconnexion </button>
+    
+      <div id="errorContainer" class="error-message">{{ errorMessage }}</div>
+      <div id="successContainer" class="success-message">{{ successMessage }}</div>
+      <button v-if="isAuthenticated" class="bg-dark_primary_green text-desktop py-3 px-10 font-quicksand rounded-xl text-black font-normal">
+        <RouterLink to="/database">
+          Accéder à vos données
+        </RouterLink>
+      </button>
     </div>
-
-    <div id="errorContainer" class="error-message">{{ errorMessage }}</div>
-    <div id="successContainer" class="success-message">{{ successMessage }}</div>
-
-
-  </form>
+    </form>
+  
 </template>
 
 
