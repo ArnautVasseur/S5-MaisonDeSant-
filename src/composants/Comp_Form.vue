@@ -107,7 +107,7 @@ const reglement = ref();
       * Aucun règlement n'est à prévoir pour la demande de devis
     </p>
 
-    <Button @click="modifyPdf" name="Demander un devis" class="mt-5" />
+    <button @click="modifyPdf" name="Demander un devis" class="mt-5 rounded-lg bg-medium_primary_green font-quicksand text-desktop px-10 h-10 flex justify-center gap-3 items-center hover:bg-hover-green duration-150 ease-out">Demander un devis</button>
 
     <div class="mt-2" id="ErrorMessage" style="display: none; color: red"></div>
   </div>
@@ -154,10 +154,10 @@ export default {
         }
 
         switch (reglement.value) {
-          case "Chèque":
+          case "Carte Bleue":
             display.value = 1;
             break;
-          case "Carte Bleue":
+          case "Chèque":
             display.value = 2;
             break;
           case "Espèces":
@@ -263,7 +263,7 @@ export default {
             });
 
             switch (display.value) {
-              //Chèque
+              //Carte Bleue
               case 1:
                 firstPage.drawText("x", {
                   x: 49,
@@ -273,7 +273,7 @@ export default {
                   color: rgb(0, 0, 0),
                 });
                 break;
-              //Carte Bleue
+              //Chèque
               case 2:
                 firstPage.drawText("x", {
                   x: 100,
@@ -349,7 +349,7 @@ export default {
             });
 
             switch (display.value) {
-              //Chèque
+              //Carte Bleue
               case 1:
                 firstPage.drawText("x", {
                   x: 49,
@@ -359,7 +359,7 @@ export default {
                   color: rgb(0, 0, 0),
                 });
                 break;
-              //Carte Bleue
+              //Chèque
               case 2:
                 firstPage.drawText("x", {
                   x: 100,
@@ -442,7 +442,7 @@ export default {
             });
 
             switch (display.value) {
-              //Chèque
+              //Carte Bleue
               case 1:
                 firstPage.drawText("x", {
                   x: 49,
@@ -452,7 +452,7 @@ export default {
                   color: rgb(0, 0, 0),
                 });
                 break;
-              //Carte Bleue
+              //Chèque
               case 2:
                 firstPage.drawText("x", {
                   x: 100,
@@ -540,7 +540,7 @@ export default {
             });
 
             switch (display.value) {
-              //Chèque
+              //Carte Bleue
               case 1:
                 firstPage.drawText("x", {
                   x: 49,
@@ -550,7 +550,7 @@ export default {
                   color: rgb(0, 0, 0),
                 });
                 break;
-              //Carte Bleue
+              //Chèque
               case 2:
                 firstPage.drawText("x", {
                   x: 100,
