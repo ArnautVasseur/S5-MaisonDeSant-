@@ -4,6 +4,18 @@ import Comp_IconHomeView from "../composants/Comp_IconHomeView.vue";
 import Comp_Card from "../composants/Comp_Card.vue";
 import Comp_CardPraticiens from "../composants/Comp_CardPraticiens.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
+
+var isScrollEnabled = true;
+function toggleScrolling() {
+    if (isScrollEnabled) {
+        window.onscroll = function () {
+            window.scrollTo(x, y);
+        };
+    } else {
+        window.onscroll = null;
+    }
+}
+toggleScrolling();
 </script>
 
 <template>

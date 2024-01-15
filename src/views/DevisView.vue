@@ -3,6 +3,17 @@ import Comp_Header from "../composants/Comp_Header.vue";
 import Comp_Form from "../composants/Comp_Form.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
 
+var isScrollEnabled = true;
+function toggleScrolling() {
+    if (isScrollEnabled) {
+        window.onscroll = function () {
+            window.scrollTo(x, y);
+        };
+    } else {
+        window.onscroll = null;
+    }
+}
+toggleScrolling();
 </script>
 
 <template>

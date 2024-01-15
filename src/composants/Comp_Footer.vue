@@ -57,15 +57,15 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
           <img class="w-5" src="/icons/info-icon.svg" alt="Icone info" />
           Charte de confidentialité et d'utilisation
         </li>
-        <li class="flex items-center gap-2">
-          <a href=""></a>
+        <RouterLink to="/authentification"><li class="flex items-center gap-2">
           <img
             class="w-5"
             src="/icons/admin-icon.svg"
             alt="Icone du buste d'un bonhomme"
           />
           Gestion administrateur
-        </li>
+        </li></RouterLink>
+        
         <li class="flex items-center gap-2">
           <a href=""></a>
           <img

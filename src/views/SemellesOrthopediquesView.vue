@@ -3,6 +3,18 @@ import Comp_Header from "../composants/Comp_Header.vue";
 import Button from "../composants/Buttons/Comp_Button.vue";
 import Comp_CardPathologies from "../composants/Comp_CardPathologies.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
+
+var isScrollEnabled = true;
+function toggleScrolling() {
+    if (isScrollEnabled) {
+        window.onscroll = function () {
+            window.scrollTo(x, y);
+        };
+    } else {
+        window.onscroll = null;
+    }
+}
+toggleScrolling();
 </script>
 
 <template>
