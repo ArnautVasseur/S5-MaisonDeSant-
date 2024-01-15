@@ -68,7 +68,7 @@ const action = ref()
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="soinsname_insert" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="soinsdesc_insert" placeholder="Description *"></textarea>
             <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="soinsimage_insert" type="file">
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="insertsoins()">
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="insertsoins()">
                 Ajouter Soin
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
@@ -86,7 +86,7 @@ const action = ref()
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="soinsname_update" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="soinsdesc_update" placeholder="Description *"></textarea>
             <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="soinsimage_update" type="file">
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="updatesoins()">
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="updatesoins()">
                 Mettre à jour ce soin
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
@@ -101,7 +101,7 @@ const action = ref()
                     {{ soin.name }}
                 </option>
             </select>
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="deletesoins()">
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="deletesoins()">
                 Supprimer ce soin
             </button>
             <div id="successMessage" style="display: none; color: red;"></div>
@@ -113,7 +113,7 @@ const action = ref()
         <div v-if="result == 'Pathologies' && action == 'Ajouter'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pathoname_insert" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pathodesc_insert" placeholder="Description *"></textarea>
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="insertpathologies()">
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="insertpathologies()">
                 Ajouter Pathologie
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
@@ -146,7 +146,7 @@ const action = ref()
                     {{ patho.name }}
                 </option>
             </select>
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="deletepathologies()">
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="deletepathologies()">
                 Supprimer cette pathologie
             </button>
             <div id="successMessage" style="display: none; color: red;"></div>
@@ -158,7 +158,7 @@ const action = ref()
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratiname_insert" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratidiplo_insert" placeholder="Diplômes *"></textarea>
             <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="pratiimage_insert" type="file">
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="insertpraticiens()">
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="insertpraticiens()">
                 Ajouter Praticien
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
@@ -170,7 +170,7 @@ const action = ref()
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratiname_update" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratidiplo_update" placeholder="Diplômes *"></textarea>
             <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="pratiimage_update" type="file">
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="updatepraticiens()">
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="updatepraticiens()">
                 Modifier Praticien
             </button>
             <div id="successMessage" style="display: none; color: green;"></div>
@@ -182,7 +182,7 @@ const action = ref()
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratiname_update" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratidiplo_update" placeholder="Diplômes *"></textarea>
             <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="pratiimage_update" type="file">
-            <button class="p-3 bg-medium_primary_green rounded-lg" id="successMessage" @click="deletepraticiens()">
+            <button class="p-3 bg-medium_primary_green rounded-lg" @click="deletepraticiens()">
                 Supprimer Praticien
             </button>
             <div id="successMessage" style="display: none; color: red;"></div>
