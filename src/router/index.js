@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { supabase } from "../lib/supabaseClient.js";
 import HomeView from '../views/HomeView.vue'
 import NotFound from '../views/404View.vue'
 import SemellesOrthopediquesView from '../views/SemellesOrthopediquesView.vue'
@@ -7,6 +8,8 @@ import NousConnaitreView from '../views/NousConnaitreView.vue'
 import DevisView from '../views/DevisView.vue'
 import AuthView from '../views/Admin/AuthentificationView.vue'
 import DatabaseView from '../views/Admin/DatabaseView.vue'
+
+let localUser;
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -52,9 +55,27 @@ const router = createRouter({
     {
       path: '/database', 
       name: 'Database', 
-      component: DatabaseView
+      component: DatabaseView,
+      meta: { requiresAuth: true },
     },
   ],
 })
+
+async function getUser(next) {
+  localUser = await supabase.auth.getSession();
+  if (localUser.data.session == null || localUser.data.session == undefined) {
+    next("/authentification");
+  } else {
+    next();
+  }
+}
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    getUser(next);
+  } else {
+    next();
+  }
+});
 
 export default router
