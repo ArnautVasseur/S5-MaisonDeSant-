@@ -262,13 +262,13 @@ export async function deletesoins() {
 //Praticiens
 export async function insertpraticiens() {
   const name = document.getElementById('pratiname_insert') as HTMLInputElement | null;
-  const desc = document.getElementById('pratidiplo_insert') as HTMLInputElement | null;
+  const diplo = document.getElementById('pratidiplo_insert') as HTMLInputElement | null;
   const imageInput = document.getElementById('pratiimage_insert') as HTMLInputElement | null;
   const successMessage = document.getElementById('successMessage');
 
-  if (name != null && desc && imageInput && successMessage != null) {
+  if (name != null && diplo && imageInput && successMessage != null) {
     const result_name = name.value;
-    const result_desc = desc.value;
+    const result_diplo = diplo.value;
     // Get the selected image file
     const imageFile = imageInput.files?.[0];
     if (imageFile) {
@@ -289,7 +289,7 @@ export async function insertpraticiens() {
         .insert([
           {
             name: result_name,
-            desc: result_desc,
+            diplomes: result_diplo,
             image_url: imageUrl,
           },
         ])
