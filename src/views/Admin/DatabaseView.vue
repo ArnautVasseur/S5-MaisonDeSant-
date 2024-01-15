@@ -197,8 +197,8 @@ const action = ref()
     </select>
 
     <!--Liste des soins-->
-    <div v-if="result == 'Soins'" class="ml-10 mt-10">
-        <ul v-for="soin in soins" :key="soin.id" class="mt-10">
+    <div v-if="result == 'Soins'" class="ml-10 mt-10 flex flex-wrap gap-5">
+        <div v-for="soin in soins" :key="soin.id" class="mt-10">
             <div class="flex gap-5 bg-secondary-beige w-[430px] p-5 rounded-xl drop-shadow-green-shadow">
                 <img class="w-24 h-32 rounded-xl" :src="soin.image_url" alt="image de soin">
                 <div class="flex flex-col">
@@ -206,32 +206,35 @@ const action = ref()
                     <li class="font-quicksand">{{ soin.desc }}</li>
                 </div>
             </div>
-        </ul>
+        </div>
     </div>
 
+
     <!--Liste des pathologies-->
-    <div v-if="result == 'Pathologies'" class="ml-10 mt-10">
-        <ul v-for="patho in pathologies" :key="patho.id" class="mt-10">
+    <div v-if="result == 'Pathologies'" class="ml-10 mt-10 flex flex-wrap gap-5">
+        <div v-for="patho in pathologies" :key="patho.id" class="mt-10">
             <div class="flex gap-5 bg-secondary-beige w-[430px] p-5 rounded-xl drop-shadow-green-shadow">
                 <div class="flex flex-col">
                     <li class="font-quicksand font-semibold mb-3">{{ patho.name }}</li>
                     <li class="font-quicksand">{{ patho.desc }}</li>
                 </div>
             </div>
-        </ul>
+        </div>
     </div>
 
+
     <!--Liste des particiens-->
-    <div v-if="result == 'Praticiens'" class="ml-10 mt-10">
-        <ul v-for="praticien in praticiens" :key="praticien.id" class="mt-10">
+    <div v-if="result == 'Praticiens'" class="ml-10 mt-10 flex flex-wrap gap-5">
+        <div v-for="praticien in praticiens" :key="praticien.id" class="mt-10">
             <div class="flex gap-5 bg-secondary-beige w-[430px] p-5 rounded-xl drop-shadow-green-shadow">
                 <div class="flex flex-col">
                     <li class="font-quicksand font-semibold mb-3">{{ praticien.name }}</li>
                     <li class="font-quicksand">{{ praticien.diplomes }}</li>
                 </div>
             </div>
-        </ul>
+        </div>
     </div>
+
 
     <!-- <Comp_Footer class="bottom-0 sm:top-[600px] top-[1000px] absolute w-full" /> -->
 </template>
