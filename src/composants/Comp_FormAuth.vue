@@ -75,8 +75,8 @@ async function logout() {
     </div>
 
     <div class="flex flex-col gap-3 items-center">
-      <button type="submit" @click="login" class="bg-medium_primary_green text-desktop py-3 px-10 font-quicksand rounded-xl text-black font-normal"> Login </button>
-      <button type="submit" @click="logout" class="bg-medium_primary_green text-desktop py-3 px-10 font-quicksand rounded-xl text-black font-normal"> Logout </button>
+      <button type="submit" @click="login" class="bg-medium_primary_green text-desktop py-3 px-10 font-quicksand rounded-xl text-black font-normal"> Se connecter </button>
+      <button type="submit" @click="logout" class="bg-medium_primary_green text-desktop py-3 px-10 font-quicksand rounded-xl text-black font-normal"> Déconnexion </button>
     </div>
 
     <div id="errorContainer" class="error-message">{{ errorMessage }}</div>

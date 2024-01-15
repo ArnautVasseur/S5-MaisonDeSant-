@@ -6,11 +6,13 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
 <template>
   <div class="grid bg-secondary-beige h-80 items-center overflow-hidden">
     <Comp_Circle
+      v-if="isLargeScreen"
       class="absolute -top-[50px] -left-[50px]"
       :size="180"
       color="#BAE9D5"
     />
     <Comp_Circle
+      v-if="isLargeScreen"
       class="absolute -bottom-7 -right-7"
       :size="142.73"
       color="#BAE9D5"
@@ -69,3 +71,14 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
     </nav>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    isLargeScreen() {
+      // You can customize this logic based on your breakpoints
+      return window.innerWidth >= 1024; // Adjust the breakpoint as needed
+    }
+  }
+};
+</script>
