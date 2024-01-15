@@ -2,6 +2,18 @@
 import Comp_Header from "../composants/Comp_Header.vue";
 import Comp_Card from "../composants/Comp_Card.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
+import { supabase } from '../lib/supabaseClient'
+import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins, insertpraticiens, updatepraticiens, deletepraticiens } from '../lib/supabaseFunctions';
+import { ref, onMounted, computed  } from 'vue'
+
+async function getsoins() {
+  const { data } = await supabase.from('soins').select()
+  soins.value = data
+}
+
+onMounted(() => {
+  getsoins()
+})
 
 var isScrollEnabled = true;
 function toggleScrolling() {
@@ -79,82 +91,27 @@ toggleScrolling();
     class="sm:h-[1822px] h-[4500px] bg-gradient-to-r from-[#DDF4EA] to-[#FBF8F7] mt-24"
   >
     <h3
-      class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-black ml-24 pt-28"
+      class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-black ml-24 pt-20"
     >
       Les différents soins que nous réalisons
     </h3>
 
-    <div class="grid sm:grid-cols-3 grid-cols-1 gap-10 mt-20 ml-10 mr-10">
-      <Comp_Card
-        name="Orthonyxie"
-        description="Traitement pour les ongles incarnés pour redresser l'ongle afin de soulager la douleur et l'inconfort."
-        imageSrc="/public/images/orthonxie.jpg"
-        imageAlt="Un ongle avec orthonxie"
-      />
-      <Comp_Card
-        name="Orthoplastie"
-        description="L'orthoplastie crée des appareillages sur mesure pour améliorer la fonction musculo-squelettique et le confort des patients."
-        imageSrc="/public/images/orthoplastie.png"
-        imageAlt="Un ongle avec orthoplastie"
-      />
-      <Comp_Card
-        name="Bilan podologique"
-        description="Evaluation spécialisée des pieds visant à identifier et traiter les problèmes podologiques, améliorant ainsi la santé et la mobilité des patients."
-        imageSrc="/public/images/Bilanpodologique.png"
-        imageAlt="Un pied pour un bilan podologique"
-      />
-      <Comp_Card
-        name="Onychoplastie"
-        description="L'onychoplastie concerne la conception d'orthèses spécifiques pour traiter les problèmes des ongles, visant à améliorer la santé et le confort des patients."
-        imageSrc="/public/images/onychoplastie.png"
-        imageAlt="Un ongle avant/après avec onychoplastie"
-      />
-      <Comp_Card
-        name="Ongle incarné"
-        description="Le bord de l'ongle pénètre dans la peau, nécessitant parfois une intervention, comme l'ablation partielle de l'ongle, pour soulager la douleur et favoriser la guérison."
-        imageSrc="/public/images/ongleincarne.png"
-        imageAlt="Un ongle avec un ongle incarné"
-      />
-      <Comp_Card
-        name="Hématome"
-        description="L'hématome sous l'ongle, causé par un traumatisme, peut nécessiter un drainage pour soulager la pression du sang accumulé."
-        imageSrc="/public/images/hematome.png"
-        imageAlt="Un ongle avec un hématome"
-      />
-      <Comp_Card
-        name="Verrue plantaire"
-        description="La verrue plantaire, causée par le VPH, peut nécessiter un traitement pour l'élimination et le soulagement de l'inconfort."
-        imageSrc="/public/images/verrue_plantaire.png"
-        imageAlt="Une verrue plantaire"
-      />
-      <Comp_Card
-        name="Mycose unguéale"
-        description="Infection fongique des ongles, nécessitant un traitement spécifique pour éliminer le champignon et restaurer la santé de l'ongle."
-        imageSrc="/public/images/mycose-unguéale.png"
-        imageAlt="Un ongle avec une mycose unguéale"
-      />
-      <Comp_Card
-        name="Durillon"
-        description="Le durillon est un épaississement de la peau dû à la pression, souvent sur les pieds ou les mains, nécessitant parfois un traitement pour soulager l'inconfort."
-        imageSrc="/public/images/durillon.png"
-        imageAlt="Un pied avec un durillon"
-      />
-      <Comp_Card
-        name="Crevasses"
-        description="Fissures dans la peau, généralement causées par la sécheresse, nécessitant des soins hydratants pour favoriser la guérison et prévenir l'inconfort."
-        imageSrc="/public/images/crevasses.png"
-        imageAlt="Un pied avec des crevasses"
-      />
-      <Comp_Card
-        name="Pied d’athlète"
-        description="Infection fongique de la peau, en particulier entre les orteils, nécessitant un traitement antifongique pour éliminer l'infection et soulager."
-        imageSrc="/public/images/pied-d-athlete.png"
-        imageAlt="Un pied avec une indection dit pied d'athlète"
-      />
+    <div class="grid sm:grid-cols-3 grid-cols-1 ml-10 mr-10 mt-10">
+      <div v-for="soin in soins" :key="soin.id" class="mt-10">
+        <div class="w-[450px]">
+          <button class="border-4 border-[#86CDB0] rounded ml-24">
+            <img class="w-24 h-32 rounded-xl" :src="soin.image_url" :alt="imageAlt" />
+          </button>
+          <div class="ml-24 mt-5">
+            <h3 class="uppercase text-desktop_h3 my-5 font-quicksand font-semibold">{{ soin.name }}</h3>
+            <p class="font-quicksand">{{ soin.desc }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[2800px] top-[5800px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[2500px] top-[5800px] absolute w-full" />
 </template>
 
 <style></style>
