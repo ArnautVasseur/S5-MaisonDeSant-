@@ -3,6 +3,20 @@ import Comp_Header from "../composants/Comp_Header.vue";
 import Button from "../composants/Buttons/Comp_Button.vue";
 import Comp_CardPathologies from "../composants/Comp_CardPathologies.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
+import { supabase } from '../lib/supabaseClient'
+import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins, insertpraticiens, updatepraticiens, deletepraticiens } from '../lib/supabaseFunctions';
+import { ref, onMounted, computed  } from 'vue'
+
+async function getpathologies() {
+  const { data } = await supabase.from('pathologies').select()
+  pathologies.value = data
+}
+
+onMounted(() => {
+  getpathologies()
+})
+
+console.log(pathologies.value)
 
 var isScrollEnabled = true;
 function toggleScrolling() {
@@ -41,7 +55,7 @@ toggleScrolling();
       </li>
       <li class="mt-5">Semelles orthopédiques → 140€</li>
       <li class="mt-5">
-        Recevez votre devis pour vos semelles orthopédiques par mail sous 24h
+        Recevez votre devis pour vos semelles orthopédiques
       </li>
     </ul>
 
@@ -151,59 +165,19 @@ toggleScrolling();
     <span class="text-black">Les différentes</span> pathologies
   </h3>
 
-  <select
-    name="pathologies"
-    id="pathologies-select"
-    class="rounded-lg bg-clear-primary-green font-quicksand text-desktop w-[438px] h-10 mt-10 ml-[500px]"
-  >
-    <option value="" class="text-center">
-      Sélectionner la provenance de la pathologie
-    </option>
-    <option value="pied" class="text-center">pathologies du pied</option>
-    <option value="genoux" class="text-center">pathologies du genoux</option>
-    <option value="hanche" class="text-center">pathologies de la hanche</option>
-  </select>
+    <div class="ml-10 mt-10 flex flex-wrap gap-5">
+      <div v-for="patho in pathologies" :key="patho.id" class="mt-10">
+        <div class="bg-secondary-beige w-64 p-5 rounded-xl drop-shadow-green-shadow">
+          <p class="text-primary_blue text-desktop_h4 font-quicksand font-semibold">
+            {{ patho.name }}
+          </p>
+          <p class="font-quicksand mt-2">{{ patho.desc }}</p>
+        </div>
+      </div>
+    </div>
 
-  <div class="grid sm:grid-cols-5 grid-cols-1 gap-10 mt-20 ml-10 mr-10">
-    <Comp_CardPathologies
-      title="GENU VALGUM"
-      text="Le genu valgum se manifeste par une déformation des jambes, créant une courbure vers l'intérieur et formant un X, avec les genoux qui se touchent tandis que les chevilles restent écartées."
-    />
-    <Comp_CardPathologies
-      title="TENDINITE ROTULIENNE"
-      text="La tendinite rotulienne résulte d'une surutilisation du tendon rotulien, fréquemment observée dans les sports d'appuis tels que le volley-ball, le handball, le basket-ball et le football."
-    />
-    <Comp_CardPathologies
-      title="GONARTHROSE"
-      text="La gonarthrose, forme d'arthrose du genou, se manifeste par des lésions dans les articulations entre le fémur et la rotule, ou entre le fémur et le tibia. La surcharge pondérale est le principal facteur de risque."
-    />
-    <Comp_CardPathologies
-      title="GENU VARUM"
-      text="Le genou varum se caractérise par une position des jambes formant un arc vers l'extérieur. C'est l'opposé du genou valgum (genoux en X)."
-    />
-    <Comp_CardPathologies
-      title="SYNDROME DE L'ESSUIE-GLACE"
-      text="Le syndrome de l'essuie-glace correspond à une inflammation de la bandelette fibreuse qui s'étend de la partie externe de la hanche jusqu'au tibia (au niveau du genou)"
-    />
-    <Comp_CardPathologies
-      title="LÉSIONS MÉNISCALES"
-      text="Une lésion méniscale se révèle par des douleurs au niveau du genou, parfois accompagnées de gonflement, de craquement, voire d'un blocage de l'articulation."
-    />
-    <Comp_CardPathologies
-      title="PÉRIOSTITE TIBIALE"
-      text="La périostite tibiale est une inflammation du périoste, une membrane entourant l'os du tibia. C'est une douleur qui est étendue le long du bord interne du tibia."
-    />
-    <Comp_CardPathologies
-      title="SYNDROME FÉMORO PATELLAIRE"
-      text="Le syndrome fémoro-patellaire se caractérise par une douleur autour ou sous la rotule, notamment lors de la descente des escaliers ou en position assise prolongée."
-    />
-    <Comp_CardPathologies
-      title="TENNIS LEG"
-      text="Le tennis leg résulte d’un mauvais échauffement qui, combiné à la fatigue et une mauvaise hydratation, aboutissent à une lésion musculaire au mollet."
-    />
-  </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[2750px] top-[4600px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[2800px] top-[4600px] absolute w-full" />
 </template>
 
 <style></style>
