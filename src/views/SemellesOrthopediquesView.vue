@@ -3,30 +3,43 @@ import Comp_Header from "../composants/Comp_Header.vue";
 import Button from "../composants/Buttons/Comp_Button.vue";
 import Comp_CardPathologies from "../composants/Comp_CardPathologies.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
-import { supabase } from '../lib/supabaseClient'
-import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins, insertpraticiens, updatepraticiens, deletepraticiens } from '../lib/supabaseFunctions';
-import { ref, onMounted, computed  } from 'vue'
+import { supabase } from "../lib/supabaseClient";
+import {
+  pathologies,
+  soins,
+  praticiens,
+  insertpathologies,
+  insertsoins,
+  deletepathologies,
+  deletesoins,
+  updatepathologies,
+  updatesoins,
+  insertpraticiens,
+  updatepraticiens,
+  deletepraticiens,
+} from "../lib/supabaseFunctions";
+import { ref, onMounted, computed } from "vue";
 
 async function getpathologies() {
-  const { data } = await supabase.from('pathologies').select()
-  pathologies.value = data
+  const { data } = await supabase.from("pathologies").select();
+  pathologies.value = data;
 }
 
 onMounted(() => {
-  getpathologies()
-})
+  getpathologies();
+});
 
-console.log(pathologies.value)
+console.log(pathologies.value);
 
 var isScrollEnabled = true;
 function toggleScrolling() {
-    if (isScrollEnabled) {
-        window.onscroll = function () {
-            window.scrollTo(x, y);
-        };
-    } else {
-        window.onscroll = null;
-    }
+  if (isScrollEnabled) {
+    window.onscroll = function () {
+      window.scrollTo(x, y);
+    };
+  } else {
+    window.onscroll = null;
+  }
 }
 toggleScrolling();
 </script>
@@ -54,9 +67,7 @@ toggleScrolling();
         La consultation de podologie (bilan pour semelles orthopédiques) → 40€
       </li>
       <li class="mt-5">Semelles orthopédiques → 140€</li>
-      <li class="mt-5">
-        Recevez votre devis pour vos semelles orthopédiques
-      </li>
+      <li class="mt-5">Recevez votre devis pour vos semelles orthopédiques</li>
     </ul>
 
     <Router-Link to="/faire-devis">
@@ -165,19 +176,20 @@ toggleScrolling();
     <span class="text-black">Les différentes</span> pathologies
   </h3>
 
-    <div class="ml-10 mt-10 flex flex-wrap gap-5">
-      <div v-for="patho in pathologies" :key="patho.id" class="mt-10">
-        <div class="bg-secondary-beige w-64 p-5 rounded-xl drop-shadow-green-shadow">
-          <p class="text-primary_blue text-desktop_h4 font-quicksand font-semibold">
-            {{ patho.name }}
-          </p>
-          <p class="font-quicksand mt-2">{{ patho.desc }}</p>
-        </div>
+  <div class="ml-10 mt-10 flex flex-wrap gap-5">
+    <div v-for="patho in pathologies" :key="patho.id" class="mt-10">
+      <div class="w-60">
+        <p
+          class="text-primary_blue text-desktop_h4 font-quicksand font-semibold"
+        >
+          {{ patho.name }}
+        </p>
+        <p class="font-quicksand mt-2">{{ patho.desc }}</p>
       </div>
     </div>
+  </div>
 
-
-  <Comp_Footer class="bottom-0 sm:top-[2800px] top-[4600px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[2800px] top-[4500px] absolute w-full" />
 </template>
 
 <style></style>
