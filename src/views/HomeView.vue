@@ -54,36 +54,46 @@ toggleScrolling();
 <template>
   <Comp_Header />
 
-  <div class="h-[600px] bg-gradient-to-r from-[#124559] to-white">
-    <h3
-      class="uppercase text-[#AEC3B0] font-quicksand font-semibold text-desktop_h3 pt-32 sm:pl-24 pl-5"
-    >
-      Vos pieds entre de bonnes mains
-    </h3>
-    <h2
-      class="text-white font-raleway font-semibold text-[5rem] pt-5 sm:pl-24 pl-5"
-    >
-      Votre Confort,
-    </h2>
-    <h2 class="text-white font-raleway font-semibold text-[5rem] sm:pl-24 pl-5">
-      Notre expertise
-    </h2>
-    <p
-      class="font-quicksand text-white text-desktop_h4 opacity-75 pt-5 sm:pl-24 pl-5"
-    >
-      Des semelles orthopédiques modulé avec précision en réponse à votre
-      diagnostic.
-    </p>
+  <div class="sm:h-[600px] h-[700px] bg-gradient-to-r from-[#124559] to-white">
+    <div class="sm:flex grid">
+      <div>
+        <h3
+          class="uppercase text-[#AEC3B0] font-quicksand font-semibold text-desktop_h3 pt-32 sm:pl-24 pl-5"
+        >
+          Vos pieds entre de bonnes mains
+        </h3>
+        <h2
+          class="text-white font-raleway font-semibold text-[5rem] pt-5 sm:pl-24 pl-5"
+        >
+          Votre Confort,
+        </h2>
+        <h2
+          class="text-white font-raleway font-semibold text-[5rem] sm:pl-24 pl-5"
+        >
+          Notre expertise
+        </h2>
+        <p
+          class="font-quicksand text-white text-desktop_h4 opacity-75 pt-5 sm:pl-24 pl-5"
+        >
+          Des semelles orthopédiques modulé avec précision en réponse à votre
+          diagnostic.
+        </p>
 
-    <Router-Link to="/traitement">
-      <button
-        class="ml-24 mt-9 rounded-3xl bg-dark_primary_green font-quicksand font-semibold text-white text-desktop px-10 h-10 hover:bg-hover-green duration-150 ease-out"
-      >
-        Découvrir
-      </button></Router-Link
-    >
+        <Router-Link to="/traitement">
+          <button
+            class="ml-24 mt-9 rounded-3xl bg-dark_primary_green font-quicksand font-semibold text-white text-desktop px-10 h-10 hover:bg-hover-green duration-150 ease-out"
+          >
+            Découvrir
+          </button></Router-Link
+        >
+      </div>
 
-    <!--<img src="../../public/images/semelles.jpg" alt="Une paire de semelles" />-->
+      <img
+        src="../../public/images/Hero.png"
+        alt="Une paire de semelles"
+        class="sm:ml-20 sm:w-[585px] hidden sm:visible"
+      />
+    </div>
   </div>
 
   <h2
@@ -208,7 +218,9 @@ toggleScrolling();
       <span class="font-semibold">→ Rendez-vous réalisez sur Doctolib. ←</span>
     </p>
 
-    <div class="mt-20 sm:flex grid gap-20 justify-between sm:mx-24 -ml-10">
+    <div
+      class="mt-20 sm:flex grid gap-20 justify-between sm:mx-24 sm:-ml-0 -ml-10"
+    >
       <div
         v-for="(praticien, index) in displayedPraticiens"
         :key="index"
@@ -250,7 +262,7 @@ toggleScrolling();
     dans leur domaine pour vous aider.
   </p>
 
-  <Comp_Footer class="bottom-0 sm:top-[3370px] top-[5400px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[3370px] top-[5500px] absolute w-full" />
 </template>
 
 <style scoped></style>
