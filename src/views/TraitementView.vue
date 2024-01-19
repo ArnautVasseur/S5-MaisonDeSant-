@@ -54,17 +54,17 @@ toggleScrolling();
     <h3
       class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-black ml-10 mt-20 text-center"
     >
-      Comment ce passe
-      <span class="text-dark_primary_green">les soins</span> ?
+      Comment se passe
+      <span class="text-dark_primary_green">les consultations</span> ?
     </h3>
 
     <ul
       class="list-disc font-quicksand mt-5 ml-5 sm:text-desktop text-desktop_small grid place-content-center"
     >
       <li class="mt-10">
-        Onychoplastie, Orthonxie et Orthoplastie ont pour tarifs → 40€
+        Onychoplastie, Orthonyxie et Orthoplastie sont au tarif de → 40€
       </li>
-      <li class="mt-5">Les autres traitement ont comme tarif → 35€</li>
+      <li class="mt-5">Les autres traitement sont au tarif de → 35€</li>
     </ul>
 
     <p

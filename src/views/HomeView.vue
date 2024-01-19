@@ -75,7 +75,7 @@ toggleScrolling();
         <p
           class="font-quicksand text-white text-desktop_h4 opacity-75 pt-5 sm:pl-24 pl-5"
         >
-          Des semelles orthopédiques modulé avec précision en réponse à votre
+          Des semelles orthopédiques modulées avec précision en réponse à votre
           diagnostic.
         </p>
 
@@ -250,7 +250,7 @@ toggleScrolling();
       <button
         class="sm:mt-20 mt-10 ml-10 sm:ml-[584px] rounded-3xl bg-primary_beige font-quicksand font-semibold text-[#2E957E] text-desktop px-10 h-10 hover:bg-hover-green hover:text-white duration-150 ease-out"
       >
-        Découvrir nos practiciens
+        Découvrir nos praticiens
       </button></Router-Link
     >
   </div>
