@@ -27,32 +27,26 @@ toggleScrolling();
     <span class="text-black">et son emplacement</span> géographique
   </h2>
 
-  <div class="sm:grid sm:grid-cols-2 gap-10">
-    <div>
-      <h3
-        class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-10"
-      >
-        <span class="text-black">Notre</span> équipe
-      </h3>
+  <h3
+    class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green mt-10 text-center"
+  >
+    <span class="text-black">Notre</span> équipe
+  </h3>
 
-      <p
-        class="font-quicksand sm:text-desktop text-desktop_small sm:ml-10 ml-5 mt-10"
-      >
-        Notre équipe est composée de professionnels à votre écoute, spécialisés
-        dans le domaine de la podologie.
-      </p>
+  <p
+    class="font-quicksand sm:text-desktop text-desktop_small text-center mt-10"
+  >
+    Notre équipe est composée de professionnels à votre écoute, spécialisés dans
+    <br />
+    le domaine de la podologie.
+  </p>
 
-      <p
-        class="font-quicksand sm:text-desktop text-desktop_small sm:ml-10 ml-5 mt-5"
-      >
-        Forts de leur expertise et de leur dévouement, ils sont déterminés à
-        traiter vos problèmes et améliorer votre bien-être.
-        <span class="font-semibold"
-          >→ Rendez-vous réalisés sur Doctolib. ←</span
-        >
-      </p>
-    </div>
-  </div>
+  <p class="font-quicksand sm:text-desktop text-desktop_small text-center mt-5">
+    Forts de leur expertise et de leur dévouement, ils sont déterminés à traiter
+    vos <br />
+    problèmes et améliorer votre bien-être.
+    <span class="font-semibold">→ Rendez-vous réalisés sur Doctolib. ←</span>
+  </p>
 
   <div class="sm:flex grid gap-10 sm:ml-10 ml-2 mr-10 mt-10">
     <Comp_CardButton
@@ -78,49 +72,42 @@ toggleScrolling();
     />
   </div>
 
-  <div class="grid sm:grid-cols-2 grid-cols-1 gap-10">
-    <div>
-      <h3
-        class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green ml-10 mt-20"
-      >
-        <span class="text-black">Emplacement</span> géographique
-      </h3>
+  <h3
+    class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-dark_primary_green text-center mt-20"
+  >
+    <span class="text-black">Emplacement</span> géographique
+  </h3>
 
-      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-10">
-        Maison de Santé CitéVie
-      </p>
-      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10">
-        → 56 Rue Jacques Foillet, 25200 Montbéliard
-      </p>
+  <p
+    class="font-quicksand sm:text-desktop text-desktop_small text-center mt-10"
+  >
+    Maison de Santé CitéVie
+  </p>
+  <p class="font-quicksand sm:text-desktop text-desktop_small text-center">
+    → 56 Rue Jacques Foillet, 25200 Montbéliard
+  </p>
 
-      <div class="ml-10 mt-5 flex">
-        <img
-          class="w-5"
-          src="/public/icons/phone-icon.svg"
-          alt="Icone d'un téléphone"
-        />
-        <p class="font-quicksand sm:text-desktop text-desktop_small ml-2">
-          Contact : 03 81 96 26 27
-        </p>
-      </div>
-
-      <p class="font-quicksand sm:text-desktop text-desktop_small ml-10 mt-6">
-        Informations pratiques :
-      </p>
-      <ul
-        class="list-disc font-quicksand sm:text-desktop text-desktop_small ml-16"
-      >
-        <li class="mt-1">2ème étage</li>
-        <li class="mt-1">Accès handicapé</li>
-        <li class="mt-1">Parking gratuit</li>
-        <li class="mt-1">Arrêt de bus FROMAGERIE</li>
-      </ul>
-    </div>
-
-    <div class="sm:mt-16 sm:-ml-52 mt-10"><Comp_Map /></div>
+  <div class="mt-5 flex justify-center">
+    <img
+      class="w-5"
+      src="/public/icons/phone-icon.svg"
+      alt="Icone d'un téléphone"
+    />
+    <p class="font-quicksand sm:text-desktop text-desktop_small ml-2">
+      Contact : 03 81 96 26 27
+    </p>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[1100px] top-[2400px] absolute w-full" />
+  <p class="font-quicksand sm:text-desktop text-desktop_small text-center mt-6">
+    Informations pratiques :
+  </p>
+  <p class="font-quicksand sm:text-desktop text-desktop_small text-center mt-2">
+    2ème étage | Accès hadicapé | Parking gratuit | Arrêt de bus FROMAGERIE
+  </p>
+
+  <div class="ml-72 mt-10"><Comp_Map /></div>
+
+  <Comp_Footer class="bottom-0 sm:top-[1400px] top-[2400px] absolute w-full" />
 </template>
 
 <style></style>

@@ -89,7 +89,7 @@ toggleScrolling();
 
       <p class="font-quicksand ml-10 mt-10 sm:text-desktop text-desktop_small">
         La création des semelles orthopédiques dure en moyenne une heure,
-        découpé en plusieurs étapes :
+        découpée en plusieurs étapes :
       </p>
 
       <ul
@@ -100,10 +100,10 @@ toggleScrolling();
           d'empreintes,
         </li>
         <li class="mt-5">
-          10 minutes pour l’impression de la semelle, réalisé avec l’une des six
-          fraiseuses présentent en France dans un cabinet de podologie.
+          10 minutes pour l’impression de la semelle, réalisée avec l’une des
+          six fraiseuses présente en France dans un cabinet de podologie.
         </li>
-        <li class="mt-5">le reste pour essayer, et faire les finissions.</li>
+        <li class="mt-5">le reste pour essayer, et faire les finitions.</li>
       </ul>
     </div>
 
@@ -135,7 +135,7 @@ toggleScrolling();
           class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-black ml-10 mt-10"
         >
           <span class="text-secondary-blue">Recouvrements</span>
-          personalisés des semelles
+          personnalisés des semelles
         </h3>
 
         <p
