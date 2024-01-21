@@ -2,28 +2,41 @@
 import Comp_Header from "../composants/Comp_Header.vue";
 import Comp_Card from "../composants/Comp_Card.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
-import { supabase } from '../lib/supabaseClient'
-import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins, insertpraticiens, updatepraticiens, deletepraticiens } from '../lib/supabaseFunctions';
-import { ref, onMounted, computed  } from 'vue'
+import { supabase } from "../lib/supabaseClient";
+import {
+  pathologies,
+  soins,
+  praticiens,
+  insertpathologies,
+  insertsoins,
+  deletepathologies,
+  deletesoins,
+  updatepathologies,
+  updatesoins,
+  insertpraticiens,
+  updatepraticiens,
+  deletepraticiens,
+} from "../lib/supabaseFunctions";
+import { ref, onMounted, computed } from "vue";
 
 async function getsoins() {
-  const { data } = await supabase.from('soins').select()
-  soins.value = data
+  const { data } = await supabase.from("soins").select();
+  soins.value = data;
 }
 
 onMounted(() => {
-  getsoins()
-})
+  getsoins();
+});
 
 var isScrollEnabled = true;
 function toggleScrolling() {
-    if (isScrollEnabled) {
-        window.onscroll = function () {
-            window.scrollTo(x, y);
-        };
-    } else {
-        window.onscroll = null;
-    }
+  if (isScrollEnabled) {
+    window.onscroll = function () {
+      window.scrollTo(x, y);
+    };
+  } else {
+    window.onscroll = null;
+  }
 }
 toggleScrolling();
 </script>
@@ -41,17 +54,17 @@ toggleScrolling();
     <h3
       class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-black ml-10 mt-20 text-center"
     >
-      Comment ce passe
-      <span class="text-dark_primary_green">les soins</span> ?
+      Comment se passe
+      <span class="text-dark_primary_green">les consultations</span> ?
     </h3>
 
     <ul
       class="list-disc font-quicksand mt-5 ml-5 sm:text-desktop text-desktop_small grid place-content-center"
     >
       <li class="mt-10">
-        Onychoplastie, Orthonxie et Orthoplastie ont pour tarifs → 40€
+        Onychoplastie, Orthonyxie et Orthoplastie sont au tarif de → 40€
       </li>
-      <li class="mt-5">Les autres traitement ont comme tarif → 35€</li>
+      <li class="mt-5">Les autres traitement sont au tarif de → 35€</li>
     </ul>
 
     <p
@@ -88,7 +101,7 @@ toggleScrolling();
   </div>
 
   <div
-    class="sm:h-[1822px] h-[4500px] bg-gradient-to-r from-[#DDF4EA] to-[#FBF8F7] mt-24"
+    class="sm:h-[1822px] h-[3800px] bg-gradient-to-r from-[#DDF4EA] to-[#FBF8F7] mt-24"
   >
     <h3
       class="sm:text-desktop_h2 text-desktop font-raleway font-semibold text-black ml-24 pt-20"
@@ -96,14 +109,22 @@ toggleScrolling();
       Les différents soins que nous réalisons
     </h3>
 
-    <div class="grid sm:grid-cols-3 grid-cols-1 ml-10 mr-10 mt-10">
+    <div class="grid sm:grid-cols-3 grid-cols-1 sm:ml-10 sm:mr-10 -ml-20 mt-10">
       <div v-for="soin in soins" :key="soin.id" class="mt-10">
         <div class="w-[450px]">
           <button class="border-4 border-[#86CDB0] rounded ml-24">
-            <img class="w-24 h-32 rounded-xl" :src="soin.image_url" :alt="imageAlt" />
+            <img
+              class="w-24 h-32 rounded-xl"
+              :src="soin.image_url"
+              :alt="imageAlt"
+            />
           </button>
           <div class="ml-24 mt-5">
-            <h3 class="uppercase text-desktop_h3 my-5 font-quicksand font-semibold">{{ soin.name }}</h3>
+            <h3
+              class="uppercase text-desktop_h3 my-5 font-quicksand font-semibold"
+            >
+              {{ soin.name }}
+            </h3>
             <p class="font-quicksand">{{ soin.desc }}</p>
           </div>
         </div>
@@ -111,7 +132,7 @@ toggleScrolling();
     </div>
   </div>
 
-  <Comp_Footer class="bottom-0 sm:top-[2500px] top-[5800px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[2500px] top-[4800px] absolute w-full" />
 </template>
 
 <style></style>

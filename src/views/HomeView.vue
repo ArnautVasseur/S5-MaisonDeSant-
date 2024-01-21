@@ -4,37 +4,49 @@ import Comp_IconHomeView from "../composants/Comp_IconHomeView.vue";
 import Comp_Card from "../composants/Comp_Card.vue";
 import Comp_CardPraticiens from "../composants/Comp_CardPraticiens.vue";
 import Comp_Footer from "../composants/Comp_Footer.vue";
-import { supabase } from '../lib/supabaseClient'
-import { pathologies, soins, praticiens, insertpathologies, insertsoins, deletepathologies, deletesoins, updatepathologies, updatesoins, insertpraticiens, updatepraticiens, deletepraticiens } from '../lib/supabaseFunctions';
-import { ref, onMounted, computed  } from 'vue'
+import { supabase } from "../lib/supabaseClient";
+import {
+  pathologies,
+  soins,
+  praticiens,
+  insertpathologies,
+  insertsoins,
+  deletepathologies,
+  deletesoins,
+  updatepathologies,
+  updatesoins,
+  insertpraticiens,
+  updatepraticiens,
+  deletepraticiens,
+} from "../lib/supabaseFunctions";
+import { ref, onMounted, computed } from "vue";
 
 async function getsoins() {
-  const { data } = await supabase.from('soins').select()
-  soins.value = data
+  const { data } = await supabase.from("soins").select();
+  soins.value = data;
 }
 
 async function getpraticiens() {
-  const { data } = await supabase.from('praticiens').select()
-  praticiens.value = data
+  const { data } = await supabase.from("praticiens").select();
+  praticiens.value = data;
 }
 
 onMounted(() => {
-  getsoins(),
-  getpraticiens()
-})
+  getsoins(), getpraticiens();
+});
 
 const displayedSoins = computed(() => soins.value.slice(0, 3));
 const displayedPraticiens = computed(() => praticiens.value.slice(0, 3));
 
 var isScrollEnabled = true;
 function toggleScrolling() {
-    if (isScrollEnabled) {
-        window.onscroll = function () {
-            window.scrollTo(x, y);
-        };
-    } else {
-        window.onscroll = null;
-    }
+  if (isScrollEnabled) {
+    window.onscroll = function () {
+      window.scrollTo(x, y);
+    };
+  } else {
+    window.onscroll = null;
+  }
 }
 toggleScrolling();
 </script>
@@ -42,36 +54,46 @@ toggleScrolling();
 <template>
   <Comp_Header />
 
-  <div class="h-[600px] bg-gradient-to-r from-[#124559] to-white">
-    <h3
-      class="uppercase text-[#AEC3B0] font-quicksand font-semibold text-desktop_h3 pt-32 sm:pl-24 pl-5"
-    >
-      Vos pieds entre de bonnes mains
-    </h3>
-    <h2
-      class="text-white font-raleway font-semibold text-[5rem] pt-5 sm:pl-24 pl-5"
-    >
-      Votre Confort,
-    </h2>
-    <h2 class="text-white font-raleway font-semibold text-[5rem] sm:pl-24 pl-5">
-      Notre expertise
-    </h2>
-    <p
-      class="font-quicksand text-white text-desktop_h4 opacity-75 pt-5 sm:pl-24 pl-5"
-    >
-      Des semelles orthopédiques modulé avec précision en réponse à votre
-      diagnostic.
-    </p>
+  <div class="sm:h-[600px] h-[700px] bg-gradient-to-r from-[#124559] to-white">
+    <div class="sm:flex grid">
+      <div>
+        <h3
+          class="uppercase text-[#AEC3B0] font-quicksand font-semibold text-desktop_h3 pt-32 sm:pl-24 pl-5"
+        >
+          Vos pieds entre de bonnes mains
+        </h3>
+        <h2
+          class="text-white font-raleway font-semibold text-[5rem] pt-5 sm:pl-24 pl-5"
+        >
+          Votre Confort,
+        </h2>
+        <h2
+          class="text-white font-raleway font-semibold text-[5rem] sm:pl-24 pl-5"
+        >
+          Notre expertise
+        </h2>
+        <p
+          class="font-quicksand text-white text-desktop_h4 opacity-75 pt-5 sm:pl-24 pl-5"
+        >
+          Des semelles orthopédiques modulées avec précision en réponse à votre
+          diagnostic.
+        </p>
 
-    <Router-Link to="/traitement">
-      <button
-        class="ml-24 mt-9 rounded-3xl bg-dark_primary_green font-quicksand font-semibold text-white text-desktop px-10 h-10 hover:bg-hover-green duration-150 ease-out"
-      >
-        Découvrir
-      </button></Router-Link
-    >
+        <Router-Link to="/traitement">
+          <button
+            class="ml-24 mt-9 rounded-3xl bg-dark_primary_green font-quicksand font-semibold text-white text-desktop px-10 h-10 hover:bg-hover-green duration-150 ease-out"
+          >
+            Découvrir
+          </button></Router-Link
+        >
+      </div>
 
-    <!--<img src="../../public/images/semelles.jpg" alt="Une paire de semelles" />-->
+      <img
+        src="../../public/images/Hero.png"
+        alt="Une paire de semelles"
+        class="sm:ml-20 sm:w-[585px] hidden sm:visible"
+      />
+    </div>
   </div>
 
   <h2
@@ -139,14 +161,22 @@ toggleScrolling();
       <span class="text-[#3C9E85]">Soins et examens pour </span>vos
       <br />pathologies
     </h2>
-    <div class="sm:flex grid">
+    <div class="sm:flex grid -ml-20 sm:-ml-0">
       <div v-for="(soin, index) in displayedSoins" :key="index" class="mt-10">
         <div class="w-[450px]">
           <button class="border-4 border-[#86CDB0] rounded ml-24">
-            <img class="w-24 h-32 rounded-xl" :src="soin.image_url" :alt="soin.name" />
+            <img
+              class="w-24 h-32 rounded-xl"
+              :src="soin.image_url"
+              :alt="soin.name"
+            />
           </button>
           <div class="ml-24 mt-5">
-            <h3 class="uppercase text-desktop_h3 my-5 font-quicksand font-semibold">{{ soin.name }}</h3>
+            <h3
+              class="uppercase text-desktop_h3 my-5 font-quicksand font-semibold"
+            >
+              {{ soin.name }}
+            </h3>
             <p class="font-quicksand">{{ soin.desc }}</p>
           </div>
         </div>
@@ -155,23 +185,33 @@ toggleScrolling();
 
     <Router-Link to="/traitement">
       <button
-        class="mt-10 sm:ml-[559px] ml-5 rounded-3xl bg-primary_beige font-quicksand font-semibold text-dark_primary_green text-desktop px-10 h-10 hover:bg-hover-green hover:text-white duration-150 ease-out">
+        class="mt-10 sm:ml-[559px] ml-5 rounded-3xl bg-primary_beige font-quicksand font-semibold text-dark_primary_green text-desktop px-10 h-10 hover:bg-hover-green hover:text-white duration-150 ease-out"
+      >
         Rechercher les soins réalisables
-      </button></Router-Link>
+      </button></Router-Link
+    >
   </div>
-  <div class="sm:h-[900px] h-[1500px] bg-gradient-to-r from-[#D3F1E4] to-[#74E4B5]">
-    <h2 class="sm:text-desktop_h2 text-desktop_h4 font-raleway font-semibold text-primary_beige pt-28 text-center">
+  <div
+    class="sm:h-[900px] h-[1500px] bg-gradient-to-r from-[#D3F1E4] to-[#74E4B5]"
+  >
+    <h2
+      class="sm:text-desktop_h2 text-desktop_h4 font-raleway font-semibold text-primary_beige pt-28 text-center"
+    >
       <span class="text-black">Notre</span>
       équipe
     </h2>
 
-    <p class="font-quicksand sm:text-desktop text-desktop_small text-center mt-10">
+    <p
+      class="font-quicksand sm:text-desktop text-desktop_small text-center mt-10"
+    >
       Notre équipe est composée de professionnels à votre écoute, spécialisés
       <br />
       dans le domaine de la podologie.
     </p>
 
-    <p class="font-quicksand sm:text-desktop text-desktop_small text-center mt-5">
+    <p
+      class="font-quicksand sm:text-desktop text-desktop_small text-center mt-5"
+    >
       Forts de leur expertise et de leur dévouement, ils sont déterminés à
       traiter <br />
       vos problèmes et améliorer votre bien-être. <br />
@@ -191,17 +231,21 @@ toggleScrolling();
 
     <Router-Link to="/nous-connaitre">
       <button
-        class="mt-20 ml-[584px] rounded-3xl bg-primary_beige font-quicksand font-semibold text-[#2E957E] text-desktop px-10 h-10 hover:bg-hover-green hover:text-white duration-150 ease-out">
-        Découvrir nos practiciens
-      </button></Router-Link>
+        class="sm:mt-20 mt-10 ml-10 sm:ml-[584px] rounded-3xl bg-primary_beige font-quicksand font-semibold text-[#2E957E] text-desktop px-10 h-10 hover:bg-hover-green hover:text-white duration-150 ease-out"
+      >
+        Découvrir nos praticiens
+      </button></Router-Link
+    >
   </div>
 
-  <p class="font-quicksand sm:text-desktop_h2 text-desktop_small text-center mt-10">
+  <p
+    class="font-quicksand sm:text-desktop_h2 text-desktop_small text-center mt-10"
+  >
     Nous travaillons avec des médecins spécialistes <br />
     dans leur domaine pour vous aider.
   </p>
 
-  <Comp_Footer class="bottom-0 sm:top-[3370px] top-[5700px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[3370px] top-[5500px] absolute w-full" />
 </template>
 
 <style scoped></style>
