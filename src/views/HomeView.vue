@@ -89,9 +89,9 @@ toggleScrolling();
       </div>
 
       <img
-        src="../../public/images/Hero.png"
+        src="../../public/images/Hero2.png"
         alt="Une paire de semelles"
-        class="sm:ml-20 sm:w-[585px] hidden sm:visible"
+        class="sm:ml-20 sm:w-[585px] lg:visible"
       />
     </div>
   </div>
