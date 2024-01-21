@@ -183,6 +183,12 @@ const action = ref()
 
         <!-- form update praticiens -->
         <div v-if="result == 'Praticiens' && action == 'Modifier'" class="w-full max-w-lg font-quicksand text-desktop font-medium flex flex-col justify-center items-center gap-5 bg-secondary-beige p-5 rounded-10 drop-shadow-green-shadow">
+            <select class="rounded-lg bg-medium_primary_green font-quicksand text-desktop h-10 " id="filter_update">
+                <option disabled value="" class="text-center">Veuillez choisir une pathologie à modifier</option>
+                <option class="text-center bg-clear-primary-green" v-for="prati in praticiens" :key="prati.id">
+                    {{ prati.name }}
+                </option>
+            </select>
             <input class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratiname_update" placeholder="Nom *">
             <textarea class="w-full px-10 py-2 rounded-lg placeholder-black bg-clear-primary-green" type="text" id="pratidiplo_update" placeholder="Diplômes *"></textarea>
             <input class="block w-full text-sm text-gray-900 border border-medium_primary_green cursor-pointer bg-clear-primary-green focus:outline-none" id="pratiimage_update" type="file">
@@ -241,11 +247,11 @@ const action = ref()
     </div>
 
 
-    <!--Liste des particiens-->
+    <!--Liste des praticiens-->
     <div v-if="result == 'Praticiens'" class="ml-10 mt-10 flex flex-wrap gap-5">
         <div v-for="praticien in praticiens" :key="praticien.id" class="mt-10">
             <div class="flex gap-5 bg-secondary-beige w-[430px] p-5 rounded-xl drop-shadow-green-shadow">
-                <img class="w-24 h-32 rounded-xl" :src="praticien.image_url" alt="image de soin">
+                <img class="h-24 rounded-xl" :src="praticien.image_url" alt="image de soin">
                 <div class="flex flex-col">
                     <li class="font-quicksand font-semibold mb-3">{{ praticien.name }}</li>
                     <li class="font-quicksand">{{ praticien.diplomes }}</li>

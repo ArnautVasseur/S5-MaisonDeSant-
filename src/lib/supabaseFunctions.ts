@@ -269,6 +269,12 @@ export async function insertpraticiens() {
   if (name != null && diplo && imageInput && successMessage != null) {
     const result_name = name.value;
     const result_diplo = diplo.value;
+
+    if (result_diplo.includes('-')) {
+      // Insert a line break in the displayed content
+      diplo.value = result_diplo.replace('-', '\n');
+    }
+    
     // Get the selected image file
     const imageFile = imageInput.files?.[0];
     if (imageFile) {

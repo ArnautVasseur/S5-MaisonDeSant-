@@ -178,16 +178,13 @@ toggleScrolling();
       <span class="font-semibold">→ Rendez-vous réalisez sur Doctolib. ←</span>
     </p>
 
-    <div class="mt-20 sm:flex grid justify-between sm:mx-24 mx-10">
+    <div class="mt-20 sm:flex grid justify-evenly sm:mx-24 mx-10">
       <div v-for="(praticien, index) in displayedPraticiens" :key="index" class="">
-        <div class="w-[450px]">
-          <button class="border-4 border-[#86CDB0] rounded ml-24">
-            <img class="w-36 h-44 rounded-xl" :src="praticien.image_url" :alt="praticien.name" />
-          </button>
-          <div class="ml-24 mt-5">
+        <div class="">
+          <button class="border-2 p-8 border-black flex flex-col justify-center items-center align-middle rounded-3xl">
+            <img class="w-[230px] h-[250px] rounded-xl" :src="praticien.image_url" :alt="praticien.name" />
             <h3 class="uppercase text-desktop_h3 my-5 font-quicksand font-semibold">{{ praticien.name }}</h3>
-            <p class="font-quicksand">{{ praticien.diplomes }}</p>
-          </div>
+          </button>
         </div>
       </div>
     </div>
