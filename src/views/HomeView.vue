@@ -54,7 +54,7 @@ toggleScrolling();
 <template>
   <Comp_Header />
 
-  <div class="sm:h-[600px] h-[700px] bg-gradient-to-r from-[#124559] to-white">
+  <div class="sm:h-[600px] h-[1200px] bg-gradient-to-r from-[#124559] to-white">
     <div class="sm:flex grid">
       <div>
         <h3
@@ -192,7 +192,7 @@ toggleScrolling();
     >
   </div>
   <div
-    class="sm:h-[900px] h-[1500px] bg-gradient-to-r from-[#D3F1E4] to-[#74E4B5]"
+    class="sm:h-[900px] h-[1700px] bg-gradient-to-r from-[#D3F1E4] to-[#74E4B5]"
   >
     <h2
       class="sm:text-desktop_h2 text-desktop_h4 font-raleway font-semibold text-primary_beige pt-28 text-center"
@@ -219,11 +219,25 @@ toggleScrolling();
     </p>
 
     <div class="mt-20 sm:flex grid justify-evenly sm:mx-24 mx-10">
-      <div v-for="(praticien, index) in displayedPraticiens" :key="index" class="">
+      <div
+        v-for="(praticien, index) in displayedPraticiens"
+        :key="index"
+        class=""
+      >
         <div class="">
-          <button class="border-2 p-8 border-black flex flex-col justify-center items-center align-middle rounded-3xl">
-            <img class="w-[230px] h-[250px] rounded-xl" :src="praticien.image_url" :alt="praticien.name" />
-            <h3 class="uppercase text-desktop_h3 my-5 font-quicksand font-semibold">{{ praticien.name }}</h3>
+          <button
+            class="border-2 p-8 border-black flex flex-col justify-center items-center align-middle rounded-3xl"
+          >
+            <img
+              class="w-[230px] h-[250px] rounded-xl"
+              :src="praticien.image_url"
+              :alt="praticien.name"
+            />
+            <h3
+              class="uppercase text-desktop_h3 my-5 font-quicksand font-semibold"
+            >
+              {{ praticien.name }}
+            </h3>
           </button>
         </div>
       </div>
@@ -245,7 +259,7 @@ toggleScrolling();
     dans leur domaine pour vous aider.
   </p>
 
-  <Comp_Footer class="bottom-0 sm:top-[3370px] top-[5500px] absolute w-full" />
+  <Comp_Footer class="bottom-0 sm:top-[3370px] top-[6200px] absolute w-full" />
 </template>
 
 <style scoped></style>
