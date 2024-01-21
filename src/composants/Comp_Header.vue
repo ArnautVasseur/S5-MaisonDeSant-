@@ -165,27 +165,6 @@ function moveUnderline(event) {
         </Router-Link>
 
         <div class="m-auto w-4/5 h-0.5 bg-medium_primary_green mt-36"></div>
-
-        <div class="flex gap-14">
-          <li class="flex items-center gap-2">
-            <a href=""></a>
-            <img
-              class="w-5"
-              src="/icons/accessibility-icon.svg"
-              alt="Icone d'un bonhomme"
-            />
-            Accessibilité
-          </li>
-          <li class="flex items-center gap-2">
-            <a href=""></a>
-            <img
-              class="w-5"
-              src="/icons/translate-icon.svg"
-              alt="Icone d'un pictogramme pour la traduction"
-            />
-            Langues
-          </li>
-        </div>
       </ul>
     </nav>
   </div>
