@@ -1,6 +1,6 @@
 <!-- Map.vue -->
 <template>
-  <div id="map" class="h-[301px] w-[780px] rounded-10"></div>
+  <div id="map" class="h-[200px] w-[450px] lg:h-[301px] lg:w-[780px] rounded-10"></div>
 </template>
 
 <script>

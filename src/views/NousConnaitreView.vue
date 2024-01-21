@@ -105,7 +105,9 @@ toggleScrolling();
     2ème étage | Accès hadicapé | Parking gratuit | Arrêt de bus FROMAGERIE
   </p>
 
-  <div class="ml-72 mt-10"><Comp_Map /></div>
+  <div class="mt-10">
+    <Comp_Map class="relative m-auto"/>
+  </div>
 
   <Comp_Footer class="bottom-0 sm:top-[1400px] top-[2400px] absolute w-full" />
 </template>
