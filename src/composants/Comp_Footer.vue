@@ -79,7 +79,7 @@ export default {
     isLargeScreen() {
       // You can customize this logic based on your breakpoints
       return window.innerWidth >= 1024; // Adjust the breakpoint as needed
-    }
-  }
+    },
+  },
 };
 </script>
