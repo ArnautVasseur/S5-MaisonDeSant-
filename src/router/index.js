@@ -8,6 +8,7 @@ import NousConnaitreView from '../views/NousConnaitreView.vue'
 import DevisView from '../views/DevisView.vue'
 import AuthView from '../views/Admin/AuthentificationView.vue'
 import DatabaseView from '../views/Admin/DatabaseView.vue'
+import CharteView from '../views/CharteView.vue'
 
 let localUser;
 
@@ -51,6 +52,11 @@ const router = createRouter({
       path: '/authentification', 
       name: 'Authentification', 
       component: AuthView
+    },
+    {
+      path: '/charte', 
+      name: 'Charte', 
+      component: CharteView
     },
     {
       path: '/database', 

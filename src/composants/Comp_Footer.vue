@@ -54,11 +54,12 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
     <div class="m-auto w-4/5 h-0.5 bg-medium_primary_green"></div>
     <nav>
       <ul class="flex font-quicksand gap-14 justify-center mb-10">
-        <li class="flex items-center gap-2">
-          <a href=""></a>
-          <img class="w-5" src="/icons/info-icon.svg" alt="Icone info" />
-          Charte de confidentialité et d'utilisation
-        </li>
+        <Router-Link to="/charte">
+          <li class="flex items-center gap-2">
+            <img class="w-5" src="/icons/info-icon.svg" alt="Icone info" />
+            Charte de confidentialité et d'utilisation
+          </li>
+        </Router-Link>
         <RouterLink to="/authentification"><li class="flex items-center gap-2">
           <img
             class="w-5"
