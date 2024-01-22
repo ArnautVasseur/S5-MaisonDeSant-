@@ -68,7 +68,7 @@ window.onscroll=function(){window.scrollTo(x, y);};
       page d'accueil.
     </p>
     <Router-Link to="/">
-      <Button name="Retour à la page d’accueil" class="mt-10 m-auto"></Button>
+      <Button show-icon="/icons/foot-icon.svg" name="Retour à la page d’accueil" class="mt-10 m-auto"></Button>
     </Router-Link>
   </div>
 </template>

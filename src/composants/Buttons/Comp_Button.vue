@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  showIcon: Boolean,
+  showIcon: String,
   name: String,
 });
 
