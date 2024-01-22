@@ -6,6 +6,7 @@ import SemellesOrthopediquesView from '../views/SemellesOrthopediquesView.vue'
 import TraitementView from '../views/TraitementView.vue'
 import NousConnaitreView from '../views/NousConnaitreView.vue'
 import DevisView from '../views/DevisView.vue'
+import CharteView from '../views/CharteView.vue'
 import AuthView from '../views/Admin/AuthentificationView.vue'
 import DatabaseView from '../views/Admin/DatabaseView.vue'
 
@@ -46,6 +47,11 @@ const router = createRouter({
       path: '/faire-devis', 
       name: 'Devis', 
       component: DevisView
+    },
+    {
+      path: '/charte-confidentialite', 
+      name: 'Charte', 
+      component: CharteView
     },
     {
       path: '/authentification', 

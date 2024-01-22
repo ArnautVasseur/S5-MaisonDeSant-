@@ -54,19 +54,23 @@ import Comp_Circle from "../composants/Comp_Circle.vue";
     <div class="m-auto w-4/5 h-0.5 bg-medium_primary_green"></div>
     <nav>
       <ul class="flex font-quicksand gap-14 justify-center mb-10">
-        <li class="flex items-center gap-2">
-          <a href=""></a>
-          <img class="w-5" src="/icons/info-icon.svg" alt="Icone info" />
-          Charte de confidentialité et d'utilisation
-        </li>
-        <RouterLink to="/authentification"><li class="flex items-center gap-2">
-          <img
-            class="w-5"
-            src="/icons/admin-icon.svg"
-            alt="Icone du buste d'un bonhomme"
-          />
-          Gestion administrateur
-        </li></RouterLink>
+        <Router-Link to="/charte-confidentialite">
+          <li class="flex items-center gap-2">
+            <a href=""></a>
+            <img class="w-5" src="/icons/info-icon.svg" alt="Icone info" />
+            Charte de confidentialité et d'utilisation
+          </li></Router-Link
+        >
+        <RouterLink to="/authentification"
+          ><li class="flex items-center gap-2">
+            <img
+              class="w-5"
+              src="/icons/admin-icon.svg"
+              alt="Icone du buste d'un bonhomme"
+            />
+            Gestion administrateur
+          </li></RouterLink
+        >
       </ul>
     </nav>
   </div>
@@ -78,7 +82,7 @@ export default {
     isLargeScreen() {
       // You can customize this logic based on your breakpoints
       return window.innerWidth >= 1024; // Adjust the breakpoint as needed
-    }
-  }
+    },
+  },
 };
 </script>
